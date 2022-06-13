@@ -2966,6 +2966,11 @@ check-types@^11.1.1:
   resolved "https://registry.yarnpkg.com/check-types/-/check-types-11.1.2.tgz#86a7c12bf5539f6324eb0e70ca8896c0e38f3e2f"
   integrity sha512-tzWzvgePgLORb9/3a0YenggReLKAIb2owL03H2Xdoe5pKcUyWRSEQ8xfCar8t2SIAuEDwtmx2da1YB52YuHQMQ==
 
+chessground@^8.2.1:
+  version "8.2.1"
+  resolved "https://registry.yarnpkg.com/chessground/-/chessground-8.2.1.tgz#0cb686c0c88f78cc18b931ae3564e3d571156ca7"
+  integrity sha512-cM79y/kC0yI+S89XN6q7CXROi/YSrU3yPTEisNJNbXMuNoqfg6cmk9/9ulCXDR6U+bnVSsrgtorgoP9PGlZTuQ==
+
 chokidar@^3.4.2, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
