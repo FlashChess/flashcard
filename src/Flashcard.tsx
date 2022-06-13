@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Chessground from "./Chessground";
+import ConvertPGNtoArray from "./ConvertPGNtoArray";
 
 
 export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: string, orientation: string) {
@@ -16,7 +17,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
           point.current = (move - 1) * 2 + 1; 
         }
     
-        ArrPlannedPGN.current = [];
+        ArrPlannedPGN.current = ConvertPGNtoArray(plannedPGN);
       }, []);
 
     return (
