@@ -3,7 +3,7 @@ import { useRef, useEffect } from "react";
 
 import Flashcard from "./Flashcard";
 import Homepage from "./Homepage";
-import ConvertPGNtoArray from "./ConvertPGNtoArrya";
+import ConvertPGNtoArray from "./app/ConvertPGNtoArrya";
 
 // URL Api 
 // http://localhost:3000/flashcards/?
@@ -22,14 +22,14 @@ export default function App(){
     const description = "" + searchParams.get("description");
 
     const plannedPGN = useRef<string>(searchParams.get("pgn"));
-    let pgn: string[] = []; 
+    let pgnArray: string[] = []; 
 
     useEffect(() => {
       if (plannedPGN.current === null){
-        pgn = [];
+        pgnArray = [];
       }
       else {
-        pgn = ConvertPGNtoArray(plannedPGN.current)
+        pgnArray = ConvertPGNtoArray(plannedPGN.current)
       }
     }, [plannedPGN.current]);
 
@@ -39,7 +39,7 @@ export default function App(){
     var orientation : "white" | "black" = (searchParams.get("orientation") === "black") ? "black" : "white";
 
     if (title !== null && plannedPGN !== null && (move !== null && parseInt(move) !== null) && turn !== null && orientation !== null){
-        return (Flashcard(title, description, pgn, parseInt(move), turn, orientation));
+        return (Flashcard(title, description, pgnArray, parseInt(move), turn, orientation));
     }
     else {
       return (<Homepage />);
