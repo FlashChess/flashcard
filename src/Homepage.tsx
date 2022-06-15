@@ -1,5 +1,9 @@
+import { useState } from "react";
+
 export default function Homepage(){
     return (
-        <div>Homepage</div>
+        <div>
+            <div>Homepage</div>
+        </div>
     );
 }
