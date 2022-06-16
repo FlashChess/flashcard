@@ -3,7 +3,7 @@ import { Chessground as ChessgroundAPI } from "chessground";
 import { Config } from "chessground/config";
 
 import 'chessground/assets/chessground.base.css';
-import "./styles/board.css";
+import "../styles/board.css";
 import "chessground/assets/chessground.cburnett.css";
 
 export default function Chessground(config : Config) {
