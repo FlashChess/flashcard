@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Chess } from "chess.js"; 
+import { Key } from "chessground/types";
 
 import Chessground from "./Chessground";
 import { Config } from "chessground/config";
@@ -14,14 +15,16 @@ export default function ChBoard() {
     const saveFromTo = useRef<any>();
 
     const handleMove = (from: any, to: any) =>{
-        chess.move({ from, to, promotion:'q' });
-        SetFen(chess.fen());
-
         saveFromTo.current = [from, to];
+        chess.move({ from, to, promotion:'q' });
+        // SetFen(chess.fen());
+        setTimeout(() => {
+            SetFen(chess.fen());
+        }, 200);
     };
 
     const myMovable: Config['movable'] = {
-        free: false,
+        free: true,
         color: turnColor, 
         dests: toDests(chess), 
         showDests: true,

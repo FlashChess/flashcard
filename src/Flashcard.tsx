@@ -20,7 +20,7 @@ const captureSound = require("./sound/capture.mp3");
 const errorSound = require("./sound/error.mp3");
 const energySound = require("./sound/energy.mp3");
 
-export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: string, orientation: string) {
+export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: string, orientation: "white" | "black") {
     // Variables that computed once
     const pgnArray = useRef<string[]>([]);
     const initialPGN = useRef<string>();
@@ -76,7 +76,9 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
         chess.move({ from, to, promotion:'q'  });
     
-        setFen(chess.fen());
+        setTimeout(() => {
+          setFen(chess.fen());
+        }, 200);
     
         if (isItPlannedMove()){
           if (getLastMove().includes("x")){
@@ -158,29 +160,29 @@ export default function Flashcard(title: string, description: string, plannedPGN
     const myViewOnly: Config['viewOnly'] = !(ind < pgnArray.current.length); 
 
     const myMovable: Config['movable'] = {
-        free: false,
-        color: turnColor, 
-        dests: toDests(chess), 
-        showDests: true,
-        events: {
-            after: handleMove
-        }
+      free: false,
+      color: turnColor, 
+      dests: toDests(chess), 
+      showDests: true,
+      events: {
+          after: handleMove
+      }
     }
 
     const myLastMove: Config['lastMove'] = (saveFromTo != null)? saveFromTo.current : ["a0", "a0"];
 
     const myHighlight: Config['highlight'] = {
-        lastMove: true,
-        check: true
+      lastMove: true,
+      check: true
     }
 
     const myAnimation: Config['animation'] = {
-        enabled: true,
-        duration: 500
+      enabled: true,
+      duration: 200, 
     }
 
     const myDraggable: Config['draggable'] = {
-        showGhost: true
+      showGhost: true
     } 
 
     return (
@@ -188,18 +190,18 @@ export default function Flashcard(title: string, description: string, plannedPGN
             <div className = "title">{ title }</div>
             <div className = "description">{ description }</div>
             <div className = "board">
-                <Chessground 
-                viewOnly = { myViewOnly }
-                fen = { fen }
-                orientation = "white"
-                turnColor = { turnColor }
-                movable = { myMovable }
-                check = { chess.in_check() }
-                lastMove = { myLastMove }
-                highlight = { myHighlight }
-                animation = { myAnimation }
-                draggable = { myDraggable }
-                />
+              <Chessground 
+              viewOnly = { myViewOnly }
+              fen = { fen }
+              orientation = { orientation }
+              turnColor = { turnColor }
+              movable = { myMovable }
+              check = { chess.in_check() }
+              lastMove = { myLastMove }
+              highlight = { myHighlight }
+              animation = { myAnimation }
+              draggable = { myDraggable }
+              />
             </div>
             <div id = "PGNprint" />
             <button onClick={resetOfChess}>Do again</button>
