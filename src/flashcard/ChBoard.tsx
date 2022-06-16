@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Chess } from "chess.js"; 
 
 import Chessground from "./Chessground";
@@ -11,9 +11,13 @@ export default function ChBoard() {
     let chess = new Chess(fen);
     const turnColor = chess.turn() === "w" ? "white" : "black";
 
+    const saveFromTo = useRef<any>();
+
     const handleMove = (from: any, to: any) =>{
         chess.move({ from, to, promotion:'q' });
         SetFen(chess.fen());
+
+        saveFromTo.current = [from, to];
     };
 
     const myMovable: Config['movable'] = {
@@ -40,6 +44,8 @@ export default function ChBoard() {
         showGhost: true
     } 
 
+    const myLastMove: Config['lastMove'] = (saveFromTo != null)? saveFromTo.current : ["a0", "a0"];
+
     return (
         <div>
             <div className = "board">
@@ -49,6 +55,7 @@ export default function ChBoard() {
                 turnColor = { turnColor }
                 movable = { myMovable }
                 check = { chess.in_check() }
+                lastMove = { myLastMove }
                 highlight = { myHighlight }
                 animation = { myAnimation }
                 draggable = { myDraggable }

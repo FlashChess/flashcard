@@ -9,13 +9,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path = "/flashcard" element = { <App /> } />
-        <Route path = "/chboard" element = { <ChBoard /> } />
-        <Route path = "*" element = { <h1>404</h1> } />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path = "/flashcard" element = { <App /> } />
+      <Route path = "/chboard" element = { <ChBoard /> } />
+      <Route path = "*" element = { <h1>404</h1> } />
+    </Routes>
+  </BrowserRouter>
 );
