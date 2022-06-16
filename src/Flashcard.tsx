@@ -21,194 +21,194 @@ const errorSound = require("./sound/error.mp3");
 const energySound = require("./sound/energy.mp3");
 
 export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: string, orientation: "white" | "black") {
-    // Variables that computed once
-    const pgnArray = useRef<string[]>([]);
-    const initialPGN = useRef<string>();
-    const initialFEN = useRef<string>(); 
-    const point = useRef<number>(0);
+  // Variables that computed once
+  const pgnArray = useRef<string[]>([]);
+  const initialPGN = useRef<string>();
+  const initialFEN = useRef<string>();
+  const point = useRef<number>(0);
 
-    // Variables that determine current state
-    const [fen, setFen] = useState<string>();
-    let chess = new Chess(fen);
-    const turnColor = chess.turn() === "w" ? "white" : "black";
-    const pgn = useRef<string>();
-    const [ind, setInd] = useState(-1);
-    const saveFromTo = useRef<any>();
+  // Variables that determine current state
+  const [fen, setFen] = useState<string>();
+  let chess = new Chess(fen);
+  const turnColor = chess.turn() === "w" ? "white" : "black";
+  const pgn = useRef<string>();
+  const [ind, setInd] = useState(-1);
+  const saveFromTo = useRef<any>();
 
-    // useSound
-    const [playMoveSound] = useSound(moveSound);
-    const [playCaptureSound] = useSound(captureSound);
-    const [playErrorSound] = useSound(errorSound);
-    const [playEnergySound] = useSound(energySound);
+  // useSound
+  const [playMoveSound] = useSound(moveSound);
+  const [playCaptureSound] = useSound(captureSound);
+  const [playErrorSound] = useSound(errorSound);
+  const [playEnergySound] = useSound(energySound);
 
-    // Arrow Functions:
-    const isItPlannedMove = () => {
-        if (chess.in_check()){
-            return(getLastMove() === getPlannedMove() + '+')
-        }
-
-        return(getLastMove() === getPlannedMove());
-    }
-    
-    const getLastMove = () => {
-        var temp = chess.history();
-        return temp[temp.length - 1];
-    }
-    
-    const getPlannedMove = () => {
-        return (pgnArray.current[ind]);
+  // Arrow Functions:
+  const isItPlannedMove = () => {
+    if (chess.in_check()) {
+      return (getLastMove() === getPlannedMove() + '+')
     }
 
-    const changePGN_forPrinting = () => {
-        var temp = chess.history();
-        pgn.current += " " + temp[temp.length - 1];
-    }
-    
-    const resetOfChess = () => {
-        pgn.current = initialPGN.current;
-        chess = new Chess(initialFEN.current);
-        setFen(chess.fen);
-        setInd(point.current);
-    }
+    return (getLastMove() === getPlannedMove());
+  }
 
-    const handleMove = (from: any, to: any) => {
-        saveFromTo.current = [from, to];
+  const getLastMove = () => {
+    var temp = chess.history();
+    return temp[temp.length - 1];
+  }
 
-        chess.move({ from, to, promotion:'q'  });
-    
-        setTimeout(() => {
-          setFen(chess.fen());
-        }, 200);
-    
-        if (isItPlannedMove()){
-          if (getLastMove().includes("x")){
-            playCaptureSound();
-          }
-          else{
-            playMoveSound();
-          }
-    
-          changePGN_forPrinting();
-          setInd(ind + 1);
-        }
-        else {
-          setTimeout(() => {
-            playErrorSound();
-            chess.undo();
-            setFen(chess.fen);
-          }, 100)
-        }
-    };
+  const getPlannedMove = () => {
+    return (pgnArray.current[ind]);
+  }
 
-    const handleHint = () => {
-        if (ind >= pgnArray.current.length){
-          return; 
-        }
-    
-        chess.move(pgnArray.current[ind]);
-        setFen(chess.fen());
-        if (ind < pgnArray.current.length){
-          changePGN_forPrinting();
-          setInd(ind + 1);
-        }
-        
-        if (getLastMove().includes("x")){
-          playCaptureSound();
-        }
-        else{
-          playMoveSound();
-        }
-    };
+  const changePGN_forPrinting = () => {
+    var temp = chess.history();
+    pgn.current += " " + temp[temp.length - 1];
+  }
 
-    const goodJob = () => {
-        playEnergySound();
-        return(
-          <h1>Good Job</h1>
-        );
-    };
+  const resetOfChess = () => {
+    pgn.current = initialPGN.current;
+    chess = new Chess(initialFEN.current);
+    setFen(chess.fen);
+    setInd(point.current);
+  }
 
-    useEffect(() => {
-      pgnPrint('PGNprint', { pgn: pgn.current, notationLayout: 'list' });
-    }, [pgn.current]);
-    
-    // For Testing
-    // const countRendering = useRef<number>(1);
-    // console.log(countRendering.current++);
-  
-    // executes only once at the end of first rendering 
-    useEffect(() => {
-      if (turn == "white"){
-        point.current = (move - 1) * 2;
+  const handleMove = (from: any, to: any) => {
+    saveFromTo.current = [from, to];
+
+    chess.move({ from, to, promotion: 'q' });
+
+    setTimeout(() => {
+      setFen(chess.fen());
+    }, 200);
+
+    if (isItPlannedMove()) {
+      if (getLastMove().includes("x")) {
+        playCaptureSound();
       }
       else {
-        point.current = (move - 1) * 2 + 1; 
+        playMoveSound();
       }
 
-      pgnArray.current = ConvertPGNtoArray(plannedPGN);
-      const tempChess = new Chess();
-      for (let i = 0; i < point.current; i++){
-        tempChess.move(pgnArray.current[i]);
-      }
-  
-      initialPGN.current = tempChess.history().join(' ');
-      initialFEN.current = tempChess.fen();
-      setFen(initialFEN.current);
-      pgn.current = initialPGN.current;
-      setInd(point.current);
-    }, []);
-    
-    const myViewOnly: Config['viewOnly'] = !(ind < pgnArray.current.length); 
+      changePGN_forPrinting();
+      setInd(ind + 1);
+    }
+    else {
+      setTimeout(() => {
+        playErrorSound();
+        chess.undo();
+        setFen(chess.fen);
+      }, 100)
+    }
+  };
 
-    const myMovable: Config['movable'] = {
-      free: false,
-      color: turnColor, 
-      dests: toDests(chess), 
-      showDests: true,
-      events: {
-          after: handleMove
-      }
+  const handleHint = () => {
+    if (ind >= pgnArray.current.length) {
+      return;
     }
 
-    const myLastMove: Config['lastMove'] = (saveFromTo != null)? saveFromTo.current : ["a0", "a0"];
-
-    const myHighlight: Config['highlight'] = {
-      lastMove: true,
-      check: true
+    chess.move(pgnArray.current[ind]);
+    setFen(chess.fen());
+    if (ind < pgnArray.current.length) {
+      changePGN_forPrinting();
+      setInd(ind + 1);
     }
 
-    const myAnimation: Config['animation'] = {
-      enabled: true,
-      duration: 200, 
+    if (getLastMove().includes("x")) {
+      playCaptureSound();
     }
+    else {
+      playMoveSound();
+    }
+  };
 
-    const myDraggable: Config['draggable'] = {
-      showGhost: true
-    } 
-
+  const goodJob = () => {
+    playEnergySound();
     return (
-        <div className = "flashcard">
-            <div className = "title">{ title }</div>
-            <div className = "description">{ description }</div>
-            <div className = "board">
-              <Chessground 
-              viewOnly = { myViewOnly }
-              fen = { fen }
-              orientation = { orientation }
-              turnColor = { turnColor }
-              movable = { myMovable }
-              check = { chess.in_check() }
-              lastMove = { myLastMove }
-              highlight = { myHighlight }
-              animation = { myAnimation }
-              draggable = { myDraggable }
-              />
-            </div>
-            <div id = "PGNprint" />
-            <button onClick={resetOfChess}>Do again</button>
-            <button onClick={handleHint}>Hint</button>
-            <div>
-                { ind >= pgnArray.current.length && goodJob() }
-            </div>
-        </div>
+      <h1>Good Job</h1>
     );
+  };
+
+  useEffect(() => {
+    pgnPrint('PGNprint', { pgn: pgn.current, notationLayout: 'list' });
+  }, [pgn.current]);
+
+  // For Testing
+  // const countRendering = useRef<number>(1);
+  // console.log(countRendering.current++);
+
+  // executes only once at the end of first rendering 
+  useEffect(() => {
+    if (turn == "white") {
+      point.current = (move - 1) * 2;
+    }
+    else {
+      point.current = (move - 1) * 2 + 1;
+    }
+
+    pgnArray.current = ConvertPGNtoArray(plannedPGN);
+    const tempChess = new Chess();
+    for (let i = 0; i < point.current; i++) {
+      tempChess.move(pgnArray.current[i]);
+    }
+
+    initialPGN.current = tempChess.history().join(' ');
+    initialFEN.current = tempChess.fen();
+    setFen(initialFEN.current);
+    pgn.current = initialPGN.current;
+    setInd(point.current);
+  }, []);
+
+  const myViewOnly: Config['viewOnly'] = !(ind < pgnArray.current.length);
+
+  const myMovable: Config['movable'] = {
+    free: false,
+    color: turnColor,
+    dests: toDests(chess),
+    showDests: true,
+    events: {
+      after: handleMove
+    }
+  }
+
+  const myLastMove: Config['lastMove'] = (saveFromTo != null) ? saveFromTo.current : ["a0", "a0"];
+
+  const myHighlight: Config['highlight'] = {
+    lastMove: true,
+    check: true
+  }
+
+  const myAnimation: Config['animation'] = {
+    enabled: true,
+    duration: 200,
+  }
+
+  const myDraggable: Config['draggable'] = {
+    showGhost: true
+  }
+
+  return (
+    <div className="flashcard">
+      <div className="title">{title}</div>
+      <div className="description">{description}</div>
+      <div className="board">
+        <Chessground
+          viewOnly={myViewOnly}
+          fen={fen}
+          orientation={orientation}
+          turnColor={turnColor}
+          movable={myMovable}
+          check={chess.in_check()}
+          lastMove={myLastMove}
+          highlight={myHighlight}
+          animation={myAnimation}
+          draggable={myDraggable}
+        />
+      </div>
+      <div id="PGNprint" />
+      <button onClick={resetOfChess}>Do again</button>
+      <button onClick={handleHint}>Hint</button>
+      <div>
+        {ind >= pgnArray.current.length && goodJob()}
+      </div>
+    </div>
+  );
 }
