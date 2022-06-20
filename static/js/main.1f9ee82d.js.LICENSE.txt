@@ -1,3 +1,8 @@
+/*!
+ * Microsoft Dynamic Proto Utility, 1.1.6
+ * Copyright (c) Microsoft and contributors. All rights reserved.
+ */
+
 /**
  * @license React
  * react-dom.production.min.js
