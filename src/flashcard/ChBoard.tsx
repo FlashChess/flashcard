@@ -77,7 +77,7 @@ export default function ChBoard() {
 
     return (
         <div>
-            <div className="board">
+            {/* <div className="board">
                 <Chessground
                     fen={fen}
                     orientation="white"
@@ -89,7 +89,7 @@ export default function ChBoard() {
                     animation={myAnimation}
                     draggable={myDraggable}
                 />
-            </div>
+            </div> */}
             <div className="board">
                 <Chessground
                     fen={fen}
