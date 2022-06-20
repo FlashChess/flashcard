@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@microsoft/applicationinsights-web": "^2.8.4",
     "@mliebelt/pgn-reader": "^1.2.13",
     "@mliebelt/pgn-viewer": "^1.6.0",
     "@testing-library/jest-dom": "^5.14.1",
