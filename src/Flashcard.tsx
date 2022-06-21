@@ -107,9 +107,9 @@ export default function Flashcard(title: string, description: string, plannedPGN
         pgnPrint('PGNprint', { pgn: pgn.current, notationLayout: 'list' });
     }, [pgn.current]);
 
-    // For Testing
-    const count = useRef<number>(1);
-    console.log(count.current++);
+    // // For Testing
+    // const count = useRef<number>(1);
+    // console.log(count.current++);
 
     // executes only once at the end of first rendering 
     useEffect(() => {
@@ -135,28 +135,6 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
     const myViewOnly: Config['viewOnly'] = !(ind.current < pgnArray.current.length);
 
-    const afterMove = (from: any, to: any) => {
-        if (isItPlannedMove()) {
-            if (getLastMove().includes("x")) {
-                playCaptureSound();
-            }
-            else {
-                playMoveSound();
-            }
-
-            changePGN_forPrinting();
-            ind.current++;
-        }
-        else {
-            playErrorSound();
-            console.log(chess.fen());
-            chess.undo();
-            console.log(chess.fen());
-            console.log("setFen");
-            setFen(chess.fen());
-        }
-    };
-
     const myChange = () => {
         if (isItPlannedMove()) {
             if (getLastMove().includes("x")) {
@@ -171,15 +149,11 @@ export default function Flashcard(title: string, description: string, plannedPGN
         }
         else {
             playErrorSound();
-            console.log(chess.fen());
             chess.undo();
-            console.log(chess.fen());
-            console.log("setFen");
-            console.log("my fen", fen);
             setTimeout(() => {
                 setFen(chess.fen());
                 setS(!s);
-            }, 400);
+            }, 300);
         }
     };
 
@@ -190,9 +164,6 @@ export default function Flashcard(title: string, description: string, plannedPGN
         color: turnColor,
         dests: toDests(chess),
         showDests: true,
-        // events: {
-        //   after: afterMove
-        // }
     }
 
     const myMove = (orig: Key, dest: Key): void => {
@@ -255,7 +226,6 @@ export default function Flashcard(title: string, description: string, plannedPGN
             <div>
                 {ind.current >= pgnArray.current.length && goodJob()}
             </div>
-            <div>{count.current - 1}</div>
         </div>
     );
 }
