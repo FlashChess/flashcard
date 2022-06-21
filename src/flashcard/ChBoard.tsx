@@ -24,16 +24,6 @@ export default function ChBoard() {
         }, 200);
     };
 
-    const myMovable: Config['movable'] = {
-        free: true,
-        color: turnColor,
-        dests: toDests(chess),
-        showDests: true,
-        events: {
-            after: handleMove
-        }
-    }
-
     const myHighlight: Config['highlight'] = {
         lastMove: true,
         check: true
@@ -50,7 +40,7 @@ export default function ChBoard() {
 
     const myLastMove: Config['lastMove'] = (saveFromTo != null) ? saveFromTo.current : ["a0", "a0"];
 
-    const myMovable2: Config['movable'] = {
+    const myMovable: Config['movable'] = {
         free: true,
         color: turnColor,
         dests: toDests(chess),
@@ -77,25 +67,12 @@ export default function ChBoard() {
 
     return (
         <div>
-            {/* <div className="board">
-                <Chessground
-                    fen={fen}
-                    orientation="white"
-                    turnColor={turnColor}
-                    movable={myMovable}
-                    check={chess.in_check()}
-                    lastMove={myLastMove}
-                    highlight={myHighlight}
-                    animation={myAnimation}
-                    draggable={myDraggable}
-                />
-            </div> */}
             <div className="board">
                 <Chessground
                     fen={fen}
                     orientation="white"
                     turnColor={turnColor}
-                    movable={myMovable2}
+                    movable={myMovable}
                     check={chess.in_check()}
                     lastMove={myLastMove}
                     highlight={myHighlight}
