@@ -9,8 +9,8 @@ import useSound from "use-sound";
 import Chessground from "./flashcard/Chessground";
 import toDests from "./flashcard/to-dests";
 import "./styles/chboard.css";
-import ConvertPGNtoArray from "./flashcard/ConvertPGNtoArrya";
-import { Api } from "chessground/api";
+import ConvertPGNtoArray from "./flashcard/ConvertPGNtoArray";
+import "./styles/flashcard.css";
 
 // import ChBoard from "./flashcard/ChBoard";
 
@@ -98,9 +98,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
     const goodJob = () => {
         playEnergySound();
-        return (
-            <h1>Good Job</h1>
-        );
+        return ("Good Job!");
     };
 
     useEffect(() => {
@@ -204,26 +202,36 @@ export default function Flashcard(title: string, description: string, plannedPGN
     return (
         <div className="flashcard">
             <div className="title">{title}</div>
-            <div className="description">{description}</div>
-            <div className="board">
-                <Chessground
-                    viewOnly={myViewOnly}
-                    fen={fen}
-                    orientation={orientation}
-                    turnColor={turnColor}
-                    movable={myMovable}
-                    check={chess.in_check()}
-                    lastMove={myLastMove}
-                    highlight={myHighlight}
-                    animation={myAnimation}
-                    draggable={myDraggable}
-                    events={myEvents}
-                />
+            <div className="box">
+                <div className="block">
+                    <div className="descriptionTitle">Description</div>
+                    <div>{description}</div>
+                </div>
+
+                <div className="block">
+                    <Chessground
+                        viewOnly={myViewOnly}
+                        fen={fen}
+                        orientation={orientation}
+                        turnColor={turnColor}
+                        movable={myMovable}
+                        check={chess.in_check()}
+                        lastMove={myLastMove}
+                        highlight={myHighlight}
+                        animation={myAnimation}
+                        draggable={myDraggable}
+                        events={myEvents}
+                    />
+                </div>
+                <div className="block">
+                    <div className="backgr" id="PGNprint" />
+                </div>
             </div>
-            <div id="PGNprint" />
-            <button onClick={resetOfChess}>Do again</button>
-            <button onClick={handleHint}>Hint</button>
-            <div>
+            <div className="buttonBox">
+                <button className="buttonDoAgain" onClick={resetOfChess}>Do again</button>
+                <button className="buttonHint" onClick={handleHint}>Hint</button>
+            </div>
+            <div className="gj">
                 {ind.current >= pgnArray.current.length && goodJob()}
             </div>
         </div>
