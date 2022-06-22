@@ -12,11 +12,11 @@ const appInsights = new ApplicationInsights({ config: {
   /* ...Other Configuration Options... */
 } });
 appInsights.loadAppInsights();
-appInsights.trackEvent({name: "Index"});
-
+appInsights.trackEvent({name: "Start"});
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <BrowserRouter>
     <Routes>
