@@ -1,3 +1,6 @@
+// Application insights 
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
 // Hooks
 import { useState, useRef, useEffect } from "react";
 import useSound from "use-sound";
@@ -25,6 +28,14 @@ const captureSound = require("./sound/capture.mp3");
 const errorSound = require("./sound/error.mp3");
 const energySound = require("./sound/energy.mp3");
 
+const appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'InstrumentationKey=581aea48-e33e-41ee-b35c-3d10f48a8a99;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/'
+        /* ...Other Configuration Options... */
+    }
+});
+appInsights.loadAppInsights();
+
 // http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
 
 export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: string, orientation: "white" | "black") {
@@ -43,6 +54,10 @@ export default function Flashcard(title: string, description: string, plannedPGN
     const saveFromTo = useRef<any>();
 
     const [s, setS] = useState<boolean>(true);
+
+    // Tracking 
+    const numMistakes = useRef<number>(0);
+    const numHints = useRef<number>(0);
 
     // useSound
     const [playMoveSound] = useSound(moveSound);
@@ -78,6 +93,16 @@ export default function Flashcard(title: string, description: string, plannedPGN
         chess = new Chess(initialFEN.current);
         setFen(chess.fen);
         ind.current = startPoint.current;
+
+        // Tracking
+        appInsights.trackEvent({
+            name: "HotSpot",
+            properties: { Name: "DoAgain" }
+        });
+
+        // Reset tracking var
+        numMistakes.current = 0;
+        numHints.current = 0;
     }
 
     const handleHint = () => {
@@ -98,10 +123,29 @@ export default function Flashcard(title: string, description: string, plannedPGN
         else {
             playMoveSound();
         }
+
+        // Tracking
+        numHints.current++;
+        appInsights.trackEvent({
+            name: "HotSpot",
+            properties: { Name: "Hint" }
+        })
     };
 
     const goodJob = () => {
         playEnergySound();
+
+        // AppInsights
+        appInsights.trackEvent({
+            name: "Done",
+            properties: {
+                Success: (numMistakes.current === 0 && numHints.current === 0),
+                NumMistakes: numMistakes.current,
+                NumMoves: pgnArray.current.length - startPoint.current,
+                NumHints: numHints.current
+            }
+        });
+
         return ("Good Job!");
     };
 
@@ -155,11 +199,12 @@ export default function Flashcard(title: string, description: string, plannedPGN
             setTimeout(() => {
                 setFen(chess.fen());
                 setS(!s);
-            }, 300);
+            }, 200);
+
+            // Tracking
+            numMistakes.current++;
         }
     };
-
-    console.log(fen);
 
     const myMovable: Config['movable'] = {
         free: false,
