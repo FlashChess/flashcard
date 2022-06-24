@@ -250,7 +250,10 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
     return (
         <div className="flashcard">
-            <div className="title">{title}</div>
+            <div className="title-box">
+                <div className="title">{title}</div>
+            </div>
+
             <div className="box">
                 <div className="block">
                     <div className="descriptionTitle">Description</div>
