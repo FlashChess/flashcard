@@ -12,30 +12,26 @@ button {
     cursor: pointer;
 
     width: 80px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .title {
     /* Text */
-    text-align: center;
     color: #4d4d4d;
-    font-size: 30px;
-    line-height: 2vw;
+    font-size: 40px;
     text-shadow: 0 1px 0 #fff;
-    white-space: nowrap;
     /* font-family: 'Noto Sans', Sans-Serif; */
 
-    padding: 10px 16px;
-    margin: auto;
+    padding: 10px 20px;
     margin-bottom: 20px;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
     background-color: #dadada;
-
-    width: 33%;
 }
 
-.title:hover {
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+.title-box { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .box {
@@ -64,6 +60,7 @@ button {
     width: 20vw;
     margin: auto;
     display: flex;
+    justify-content: space-around;
     margin-bottom: 10px;
 }
 

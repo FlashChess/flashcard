@@ -1,20 +1,26 @@
+// Application insights 
+import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+
+// Hooks
 import { useState, useRef, useEffect } from "react";
+import useSound from "use-sound";
+
+// Modules 
 import { Chess } from "chess.js";
+import { pgnPrint } from '@mliebelt/pgn-viewer';
+import Chessground from "./flashcard/Chessground";
+
+// TS functions
+import toDests from "./flashcard/to-dests";
+import ConvertPGNtoArray from "./flashcard/ConvertPGNtoArray";
+
+// Types
 import { Config } from "chessground/config";
 import { Key } from "chessground/types";
 import { Square } from "chess.js";
-import { pgnPrint } from '@mliebelt/pgn-viewer';
-import useSound from "use-sound";
 
-import Chessground from "./flashcard/Chessground";
-import toDests from "./flashcard/to-dests";
-import "./styles/chboard.css";
-import ConvertPGNtoArray from "./flashcard/ConvertPGNtoArray";
+// CSS
 import "./styles/flashcard.css";
-
-// import ChBoard from "./flashcard/ChBoard";
-
-// http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
 
 // Sound
 const moveSound = require("./sound/move.mp3");
@@ -22,23 +28,36 @@ const captureSound = require("./sound/capture.mp3");
 const errorSound = require("./sound/error.mp3");
 const energySound = require("./sound/energy.mp3");
 
+const appInsights = new ApplicationInsights({
+    config: {
+        connectionString: 'InstrumentationKey=581aea48-e33e-41ee-b35c-3d10f48a8a99;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/'
+        /* ...Other Configuration Options... */
+    }
+});
+appInsights.loadAppInsights();
+
+// http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
+
 export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: string, orientation: "white" | "black") {
     // Variables that computed once
     const pgnArray = useRef<string[]>([]);
     const initialPGN = useRef<string>();
     const initialFEN = useRef<string>();
-    const point = useRef<number>(0);
+    const startPoint = useRef<number>(0);
 
     // Variables that determine current state
     const [fen, setFen] = useState<string>();
     let chess = new Chess(fen);
     const turnColor = chess.turn() === "w" ? "white" : "black";
     const pgn = useRef<string>();
-    // const [ind, setInd] = useState(-1);
     const ind = useRef<number>(-1);
     const saveFromTo = useRef<any>();
 
     const [s, setS] = useState<boolean>(true);
+
+    // Tracking 
+    const numMistakes = useRef<number>(0);
+    const numHints = useRef<number>(0);
 
     // useSound
     const [playMoveSound] = useSound(moveSound);
@@ -73,7 +92,17 @@ export default function Flashcard(title: string, description: string, plannedPGN
         pgn.current = initialPGN.current;
         chess = new Chess(initialFEN.current);
         setFen(chess.fen);
-        ind.current = point.current;
+        ind.current = startPoint.current;
+
+        // Tracking
+        appInsights.trackEvent({
+            name: "HotSpot",
+            properties: { Name: "DoAgain" }
+        });
+
+        // Reset tracking var
+        numMistakes.current = 0;
+        numHints.current = 0;
     }
 
     const handleHint = () => {
@@ -94,10 +123,29 @@ export default function Flashcard(title: string, description: string, plannedPGN
         else {
             playMoveSound();
         }
+
+        // Tracking
+        numHints.current++;
+        appInsights.trackEvent({
+            name: "HotSpot",
+            properties: { Name: "Hint" }
+        })
     };
 
     const goodJob = () => {
         playEnergySound();
+
+        // AppInsights
+        appInsights.trackEvent({
+            name: "Done",
+            properties: {
+                Success: (numMistakes.current === 0 && numHints.current === 0),
+                NumMistakes: numMistakes.current,
+                NumMoves: pgnArray.current.length - startPoint.current,
+                NumHints: numHints.current
+            }
+        });
+
         return ("Good Job!");
     };
 
@@ -112,15 +160,15 @@ export default function Flashcard(title: string, description: string, plannedPGN
     // executes only once at the end of first rendering 
     useEffect(() => {
         if (turn == "white") {
-            point.current = (move - 1) * 2;
+            startPoint.current = (move - 1) * 2;
         }
         else {
-            point.current = (move - 1) * 2 + 1;
+            startPoint.current = (move - 1) * 2 + 1;
         }
 
         pgnArray.current = ConvertPGNtoArray(plannedPGN);
         const tempChess = new Chess();
-        for (let i = 0; i < point.current; i++) {
+        for (let i = 0; i < startPoint.current; i++) {
             tempChess.move(pgnArray.current[i]);
         }
 
@@ -128,7 +176,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
         initialFEN.current = tempChess.fen();
         setFen(initialFEN.current);
         pgn.current = initialPGN.current;
-        ind.current = point.current;
+        ind.current = startPoint.current;
     }, []);
 
     const myViewOnly: Config['viewOnly'] = !(ind.current < pgnArray.current.length);
@@ -151,11 +199,12 @@ export default function Flashcard(title: string, description: string, plannedPGN
             setTimeout(() => {
                 setFen(chess.fen());
                 setS(!s);
-            }, 300);
+            }, 200);
+
+            // Tracking
+            numMistakes.current++;
         }
     };
-
-    console.log(fen);
 
     const myMovable: Config['movable'] = {
         free: false,
@@ -201,7 +250,10 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
     return (
         <div className="flashcard">
-            <div className="title">{title}</div>
+            <div className="title-box">
+                <div className="title">{title}</div>
+            </div>
+
             <div className="box">
                 <div className="block">
                     <div className="descriptionTitle">Description</div>
@@ -228,8 +280,8 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 </div>
             </div>
             <div className="buttonBox">
-                <button className="buttonDoAgain" onClick={resetOfChess}>Do again</button>
-                <button className="buttonHint" onClick={handleHint}>Hint</button>
+                <button onClick={resetOfChess}>Do again</button>
+                <button onClick={handleHint}>Hint</button>
             </div>
             <div className="gj">
                 {ind.current >= pgnArray.current.length && goodJob()}
