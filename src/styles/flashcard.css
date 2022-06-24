@@ -12,15 +12,15 @@ button {
     cursor: pointer;
 
     width: 80px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .title {
     /* Text */
     text-align: center;
     color: #4d4d4d;
-    font-size: 30px;
-    line-height: 2vw;
+    font-size: 2.5vw;
+    line-height: 2.5vw;
     text-shadow: 0 1px 0 #fff;
     white-space: nowrap;
     /* font-family: 'Noto Sans', Sans-Serif; */
@@ -32,10 +32,6 @@ button {
     background-color: #dadada;
 
     width: 33%;
-}
-
-.title:hover {
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
 
 .box {
@@ -64,6 +60,7 @@ button {
     width: 20vw;
     margin: auto;
     display: flex;
+    justify-content: space-around;
     margin-bottom: 10px;
 }
 

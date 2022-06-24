@@ -277,8 +277,8 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 </div>
             </div>
             <div className="buttonBox">
-                <button className="buttonDoAgain" onClick={resetOfChess}>Do again</button>
-                <button className="buttonHint" onClick={handleHint}>Hint</button>
+                <button onClick={resetOfChess}>Do again</button>
+                <button onClick={handleHint}>Hint</button>
             </div>
             <div className="gj">
                 {ind.current >= pgnArray.current.length && goodJob()}
