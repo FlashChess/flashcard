@@ -13,6 +13,9 @@ appInsights.trackEvent({name: "Start"});
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+console.log("index.tsx:");
+console.log("session_ID:", appInsights.context.getSessionId());
+console.log("user_Id:", appInsights.context.user.id);
 
 root.render(
   <BrowserRouter>
