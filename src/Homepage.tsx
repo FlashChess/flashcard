@@ -22,7 +22,7 @@ export default function Homepage() {
 
     useEffect(() => {
         appInsights.trackEvent({name: "Home"});
-    });
+    }, []);
 
     return (
         <div className="homepage-box">
