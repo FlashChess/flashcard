@@ -1,4 +1,8 @@
-import { useState } from 'react';
+// Telemetry
+import { appInsights } from "./Telemetry";
+
+// Other
+import { useEffect, useState } from 'react';
 import "./styles/homepage.css";
 
 export default function Homepage() {
@@ -12,8 +16,13 @@ export default function Homepage() {
     const [orientation, setOrientation] = useState<string>("white");
 
     const handleClick = () => {
+        appInsights.trackEvent({name: "Create"});
         window.location.href = LinkPart + "title=" + title + "&description=" + description + "&pgn=" + pgn + "&move=" + move + "&turn=" + turn + "&orientation=" + orientation;
     }
+
+    useEffect(() => {
+        appInsights.trackEvent({name: "Home"});
+    });
 
     return (
         <div className="homepage-box">
