@@ -56,7 +56,7 @@ export default function Homepage() {
                     <textarea className="homepage-description-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div>
-                    <div>PGN</div>
+                    <div>PGN (<a className="link" href="https://lichess.org/analysis">you can create it here</a>)</div>
                     <input className="homepage-pgn-input" type="text" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                 </div>
                 <div className="homepage-label-parts">
