@@ -21,6 +21,7 @@ import { Square } from "chess.js";
 
 // CSS
 import "./styles/flashcard.css";
+import { createHashHistory } from "history";
 
 // Sound
 const moveSound = require("./sound/move.mp3");
@@ -104,6 +105,10 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
         chess.move(pgnArray.current[ind.current]);
         setFen(chess.fen());
+
+        const chHistory = chess.history({ verbose: true})[0];
+        saveFromTo.current = [chHistory.from, chHistory.to]
+
         if (ind.current < pgnArray.current.length) {
             changePGN_forPrinting();
             ind.current++;
