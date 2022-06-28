@@ -124,6 +124,10 @@ export default function Flashcard(title: string, description: string, plannedPGN
         })
     };
 
+    const goHome = () => {
+        window.location.href = "https://flashchess.github.io/flashcard/";
+    }
+
     const goodJob = () => {
         playEnergySound();
 
@@ -243,7 +247,9 @@ export default function Flashcard(title: string, description: string, plannedPGN
     return (
         <div className="flashcard">
             <div className="title-box">
-                <div className="title">{title}</div>
+                <div>
+                    <div className="title">{title}</div>
+                </div>
             </div>
 
             <div className="box">
@@ -273,6 +279,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
             </div>
             <div className="buttonBox">
                 <button onClick={resetOfChess}>Do again</button>
+                <button onClick={goHome}>Home</button>
                 <button onClick={handleHint}>Hint</button>
             </div>
             <div className="gj">
