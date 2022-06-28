@@ -1,5 +1,5 @@
 .homepage-box {
-    height: 600px;
+    height: 700px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -21,12 +21,30 @@
     background-color: #dadada;
 }
 
+.homepage-project-descrition {
+    text-align: center;
+    color:#4d4d4d;
+    font-family: 'Noto Sans', Sans-Serif;
+}
+
+.homepage-project-descrition .bleak-text {
+    color:#727171;
+}
+
 .homepage-text {
     text-align: center;
     color: #4d4d4d;
     font-size: 25px;
     text-shadow: 0 1px 0 #fff;
-    /* font-family: 'Noto Sans', Sans-Serif; */
+}
+
+.homepage-text-1st-div {
+    height: 25px;
+    padding-bottom: 7.5px;
+}
+
+.homepage-text-other-div{
+    height: 25px;
 }
 
 .homepage-form { 

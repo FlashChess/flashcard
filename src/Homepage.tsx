@@ -16,22 +16,28 @@ export default function Homepage() {
     const [orientation, setOrientation] = useState<string>("white");
 
     const handleClick = () => {
-        appInsights.trackEvent({name: "Create"});
+        appInsights.trackEvent({ name: "Create" });
         window.location.href = LinkPart + "title=" + title + "&description=" + description + "&pgn=" + pgn + "&move=" + move + "&turn=" + turn + "&orientation=" + orientation;
     }
 
     useEffect(() => {
-        appInsights.trackEvent({name: "Home"});
+        appInsights.trackEvent({ name: "Home" });
     }, []);
 
     return (
         <div className="homepage-box">
             <div className="homepage-title">Welcome to FlashChess</div>
 
+            <div className="homepage-project-descrition">
+                <div><b>FlashChess</b> - is a prlatform for learning chess openings.</div>
+                <div>It uses an inovative way to help you learn long sequences of moves.</div>
+                <div className="bleak-text">Inspired by flashcard approach for learning.</div>
+            </div>
+
             <div className="homepage-text">
-                <div>You can try this <a href="https://flashchess.github.io/flashcard/?pgn=1.%20e4%20e6%202.%20d3%20d5%203.%20Nd2%20Nf6%204.%20Ngf3%20c5%205.%20g3%20Nc6%206.%20Bg2%20Be7%207.%20O-O%20O-O%208.%20Re1%20b5%209.%20e5%20Nd7%2010.%20Nf1%20a5%2011.%20h4%20b4&move=3&turn=black&orientation=black&title=C00%20French%20Defense:%20King%27s%20Indian%20Attack%20&description=Main">Example</a></div>
-                <div>OR</div>
-                <div>Create your own opening flashcard: </div>
+                <div className="homepage-text-1st-div">You can try this <a href="https://flashchess.github.io/flashcard/?pgn=1.%20e4%20e6%202.%20d3%20d5%203.%20Nd2%20Nf6%204.%20Ngf3%20c5%205.%20g3%20Nc6%206.%20Bg2%20Be7%207.%20O-O%20O-O%208.%20Re1%20b5%209.%20e5%20Nd7%2010.%20Nf1%20a5%2011.%20h4%20b4&move=3&turn=black&orientation=black&title=C00%20French%20Defense:%20King%27s%20Indian%20Attack%20&description=Main">Example</a></div>
+                <div className="homepage-text-other-div">OR</div>
+                <div className="homepage-text-other-div">Create your own opening flashcard: </div>
             </div>
 
             <div className="homepage-form homepage-form-text">
@@ -59,12 +65,12 @@ export default function Homepage() {
                         </label>
                     </div>
                     <div>
-                    <label>Orientation: <select value={orientation} onChange={(e) => setOrientation(e.target.value)}>
-                        <option value="white">white</option>
-                        <option value="black">black</option>
-                    </select>
-                    </label>
-                </div>
+                        <label>Orientation: <select value={orientation} onChange={(e) => setOrientation(e.target.value)}>
+                            <option value="white">white</option>
+                            <option value="black">black</option>
+                        </select>
+                        </label>
+                    </div>
                 </div>
             </div>
             <button onClick={handleClick}>Go</button>
