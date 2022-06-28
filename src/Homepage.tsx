@@ -29,9 +29,15 @@ export default function Homepage() {
             <div className="homepage-title">Welcome to FlashChess</div>
 
             <div className="homepage-project-descrition">
-                <div><b>FlashChess</b> - is a prlatform for learning chess openings.</div>
-                <div>It uses an inovative way to help you learn long sequences of moves.</div>
-                <div className="bleak-text">Inspired by flashcard approach for learning.</div>
+                <div className="paragraph">
+                    <b>FlashChess</b> - is a prlatform for learning chess openings. <br />
+                    It uses an inovative way to help you learn long sequences of moves. <br />
+                    (Inspired by flashcard approach for learning).
+                </div>
+                <div>
+                    Currently backend is being developing (to save your data). <br />
+                    Now you can create opening flashcard and save it (in OneNote for example).
+                </div>
             </div>
 
             <div className="homepage-text">
