@@ -1,5 +1,5 @@
-// Application insights 
-import { ApplicationInsights } from '@microsoft/applicationinsights-web';
+// Telemetry
+import { appInsights } from "./Telemetry";
 
 // Hooks
 import { useState, useRef, useEffect } from "react";
@@ -27,14 +27,6 @@ const moveSound = require("./sound/move.mp3");
 const captureSound = require("./sound/capture.mp3");
 const errorSound = require("./sound/error.mp3");
 const energySound = require("./sound/energy.mp3");
-
-const appInsights = new ApplicationInsights({
-    config: {
-        connectionString: 'InstrumentationKey=581aea48-e33e-41ee-b35c-3d10f48a8a99;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus2.livediagnostics.monitor.azure.com/'
-        /* ...Other Configuration Options... */
-    }
-});
-appInsights.loadAppInsights();
 
 // http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
 
