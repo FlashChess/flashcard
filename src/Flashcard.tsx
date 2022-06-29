@@ -86,6 +86,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
         chess = new Chess(initialFEN.current);
         setFen(chess.fen);
         ind.current = startPoint.current;
+        saveFromTo.current = null;
 
         // Tracking
         appInsights.trackEvent({
