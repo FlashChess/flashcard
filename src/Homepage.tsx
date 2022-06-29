@@ -4,6 +4,7 @@ import { appInsights } from "./Telemetry";
 // Other
 import { useEffect, useState } from 'react';
 import "./styles/homepage.css";
+const murmurhash = require('murmurhash');
 
 export default function Homepage() {
     const LinkPart = "https://flashchess.github.io/flashcard/?";
@@ -16,7 +17,12 @@ export default function Homepage() {
     const [orientation, setOrientation] = useState<string>("white");
 
     const handleClick = () => {
-        appInsights.trackEvent({ name: "Create" });
+        appInsights.trackEvent({
+            name: "Create",
+            properties: {
+                Hash: murmurhash.v3(pgn + move + turn + orientation)
+            }
+        });
         window.location.href = LinkPart + "title=" + title + "&description=" + description + "&pgn=" + pgn + "&move=" + move + "&turn=" + turn + "&orientation=" + orientation;
     }
 
@@ -30,7 +36,7 @@ export default function Homepage() {
 
             <div className="homepage-project-descrition">
                 <div className="paragraph">
-                    <b>FlashChess</b> - is a prlatform for learning chess openings. <br />
+                    <b>FlashChess</b> - is a platform for learning chess openings. <br />
                     It uses an inovative way to help you learn long sequences of moves. <br />
                     (Inspired by flashcard approach for learning).
                 </div>
@@ -79,7 +85,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </div>
-            <button onClick={handleClick}>Go</button>
+            <button onClick={handleClick}>Create</button>
         </div>
     )
 }
