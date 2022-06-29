@@ -16,7 +16,7 @@ export default function Homepage() {
     const [turn, setTurn] = useState<string>("white");
     const [orientation, setOrientation] = useState<string>("white");
 
-    const handleClick = () => {
+    const Create = () => {
         appInsights.trackEvent({
             name: "Create",
             properties: {
@@ -52,22 +52,27 @@ export default function Homepage() {
                 <div className="homepage-text-other-div">Create your own opening flashcard: </div>
             </div>
 
-            <div className="homepage-form homepage-form-text">
+            <div className="homepage-form">
                 <div>
                     <div>Title</div>
-                    <input className="homepage-title-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input className="title-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
                     <div>Descritption</div>
                     <textarea className="homepage-description-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div>
-                    <div>PGN (<a className="link" href="https://lichess.org/analysis">you can create it here</a>)</div>
-                    <input className="homepage-pgn-input" type="text" value={pgn} onChange={(e) => setPGN(e.target.value)} />
+                    <div className="pgn-text">
+                        <div>PGN (</div>
+                        <div className="link">you can create it on&nbsp;</div>
+                        <a className="link" href="https://lichess.org/analysis">lichess</a>
+                        <div>)</div>
+                    </div>
+                    <input className="pgn-input" type="text" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                 </div>
-                <div className="homepage-label-parts">
+                <div className="label-parts">
                     <div>
-                        <label>Start move: <input className="homepage-move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></label>
+                        <label>Start move: <input className="move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></label>
                     </div>
                     <div>
                         <label>Turn: <select value={turn} onChange={(e) => setTurn(e.target.value)}>
@@ -85,7 +90,7 @@ export default function Homepage() {
                     </div>
                 </div>
             </div>
-            <button onClick={handleClick}>Create</button>
+            <button onClick={Create}>Create</button>
         </div>
     )
 }

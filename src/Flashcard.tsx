@@ -21,7 +21,6 @@ import { Square } from "chess.js";
 
 // CSS
 import "./styles/flashcard.css";
-import { createHashHistory } from "history";
 
 // Sound
 const moveSound = require("./sound/move.mp3");
