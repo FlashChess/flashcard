@@ -23,7 +23,7 @@ export default function App(){
     var turn : "white" | "black" = (searchParams.get("turn") === "black") ? "black" : "white";
     var orientation : "white" | "black" = (searchParams.get("orientation") === "black") ? "black" : "white";
 
-    if (title !== null && plannedPGN !== null && (move !== null && parseInt(move) !== null) && turn !== null && orientation !== null){
+    if (title !== null && plannedPGN !== null && (move !== null && parseInt(move) !== null)){
         return (Flashcard(title, description, plannedPGN, parseInt(move), turn, orientation));
     }
     else {
