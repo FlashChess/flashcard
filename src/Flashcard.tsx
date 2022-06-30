@@ -21,7 +21,6 @@ import { Square } from "chess.js";
 
 // CSS
 import "./styles/flashcard.css";
-import { createHashHistory } from "history";
 
 // Sound
 const moveSound = require("./sound/move.mp3");
@@ -95,7 +94,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
         appInsights.trackEvent({
             name: "HotSpot",
             properties: {
-                Name: "DoAgain", 
+                Name: "DoAgain",
                 Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
             }
         });
@@ -132,7 +131,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
         numHints.current++;
         appInsights.trackEvent({
             name: "HotSpot",
-            properties: { 
+            properties: {
                 Name: "Hint",
                 Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
             }
@@ -262,10 +261,18 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
     return (
         <div className="flashcard">
-            <div className="title-box">
-                <div>
-                    <div className="title">{title}</div>
+            <div className="top-line">
+                <div className="sColor r">
+                    <button onClick={goHome}>Home</button>
                 </div>
+                <div className="sColor b">
+                    <div className="title-box">
+                        <div>
+                            <div className="title">{title}</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="sColor g" />
             </div>
 
             <div className="box">
@@ -289,13 +296,14 @@ export default function Flashcard(title: string, description: string, plannedPGN
                         events={myEvents}
                     />
                 </div>
+
                 <div className="block">
                     <div className="backgr" id="PGNprint" />
                 </div>
             </div>
+
             <div className="buttonBox">
                 <button onClick={resetOfChess}>Do again</button>
-                <button onClick={goHome}>Home</button>
                 <button onClick={handleHint}>Hint</button>
             </div>
             <div className="gj">

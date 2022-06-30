@@ -5,6 +5,7 @@ import { appInsights } from "./Telemetry";
 import { useEffect, useState } from 'react';
 import "./styles/homepage.css";
 const murmurhash = require('murmurhash');
+const exampleLink = "https://flashchess.github.io/flashcard/?pgn=1.%20e4%20e6%202.%20d3%20d5%203.%20Nd2%20Nf6%204.%20Ngf3%20c5%205.%20g3%20Nc6%206.%20Bg2%20Be7%207.%20O-O%20O-O%208.%20Re1%20b5%209.%20e5%20Nd7%2010.%20Nf1%20a5%2011.%20h4%20b4&move=3&turn=black&orientation=black&title=C00%20French%20Defense:%20King%27s%20Indian%20Attack%20&description=Main";
 
 export default function Homepage() {
     const LinkPart = "https://flashchess.github.io/flashcard/?";
@@ -16,7 +17,7 @@ export default function Homepage() {
     const [turn, setTurn] = useState<string>("white");
     const [orientation, setOrientation] = useState<string>("white");
 
-    const handleClick = () => {
+    const Create = () => {
         appInsights.trackEvent({
             name: "Create",
             properties: {
@@ -34,40 +35,41 @@ export default function Homepage() {
         <div className="homepage-box">
             <div className="homepage-title">Welcome to FlashChess</div>
 
-            <div className="homepage-project-descrition">
+            <div className="homepage-project-description">
                 <div className="paragraph">
                     <b>FlashChess</b> - is a platform for learning chess openings. <br />
-                    It uses an inovative way to help you learn long sequences of moves. <br />
-                    (Inspired by flashcard approach for learning).
                 </div>
-                <div>
-                    Currently backend is being developing (to save your data). <br />
-                    Now you can create opening flashcard and save it (in OneNote for example).
-                </div>
+                <div className="paragraph">Two ways how to use it:</div>
+                <div>1. Create opening flashcard like <a href={exampleLink}>this</a> and save its link somewhere <br />&nbsp;&nbsp;&nbsp; (e.g. in OneNote).</div>
+                <div>2. Create your account and save your flashcard there (in developing).</div>
             </div>
 
-            <div className="homepage-text">
-                <div className="homepage-text-1st-div">You can try this <a href="https://flashchess.github.io/flashcard/?pgn=1.%20e4%20e6%202.%20d3%20d5%203.%20Nd2%20Nf6%204.%20Ngf3%20c5%205.%20g3%20Nc6%206.%20Bg2%20Be7%207.%20O-O%20O-O%208.%20Re1%20b5%209.%20e5%20Nd7%2010.%20Nf1%20a5%2011.%20h4%20b4&move=3&turn=black&orientation=black&title=C00%20French%20Defense:%20King%27s%20Indian%20Attack%20&description=Main">Example</a></div>
-                <div className="homepage-text-other-div">OR</div>
-                <div className="homepage-text-other-div">Create your own opening flashcard: </div>
-            </div>
+            <div className="homepage-form">
+                <div className="homepage-text param">Create your own opening flashcard:</div>
 
-            <div className="homepage-form homepage-form-text">
                 <div>
                     <div>Title</div>
-                    <input className="homepage-title-input" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <textarea className="pd-textarea title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
+
                 <div>
                     <div>Descritption</div>
-                    <textarea className="homepage-description-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <textarea className="pd-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
+
                 <div>
-                    <div>PGN (<a className="link" href="https://lichess.org/analysis">you can create it here</a>)</div>
-                    <input className="homepage-pgn-input" type="text" value={pgn} onChange={(e) => setPGN(e.target.value)} />
+                    <div className="pgn-text">
+                        <div>PGN (</div>
+                        <div className="link">you can create it on&nbsp;</div>
+                        <a className="link" href="https://lichess.org/analysis">lichess</a>
+                        <div>)</div>
+                    </div>
+                    <textarea className="pd-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                 </div>
-                <div className="homepage-label-parts">
+
+                <div className="label-parts">
                     <div>
-                        <label>Start move: <input className="homepage-move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></label>
+                        <label>Start move: <input className="move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></label>
                     </div>
                     <div>
                         <label>Turn: <select value={turn} onChange={(e) => setTurn(e.target.value)}>
@@ -84,8 +86,10 @@ export default function Homepage() {
                         </label>
                     </div>
                 </div>
+
+                <button onClick={Create}>Create</button>
             </div>
-            <button onClick={handleClick}>Create</button>
+
         </div>
     )
 }
