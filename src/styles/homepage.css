@@ -1,9 +1,11 @@
 .homepage-box {
-    height: 700px;
+    margin: auto;
+    height: 600px;
+    max-width: 700px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -23,8 +25,7 @@
 
 .homepage-project-descrition {
     display: block;
-    max-width: 550px;
-    text-align: center;
+    max-width: 500px;
     color:#4d4d4d;
     font-family: 'Noto Sans', Sans-Serif;
 }
@@ -38,39 +39,28 @@
     color: #4d4d4d;
     font-size: 25px;
     text-shadow: 0 1px 0 #fff;
-    margin-bottom: 2px;
-}
-
-.homepage-text-1st-div {
-    height: 25px;
-    margin-bottom: 7.5px;
-}
-
-.homepage-text-other-div{
-    height: 25px;
 }
 
 .homepage-form { 
-    height: 250px;
-    width: 490px;
+    height: 300px;
+    max-width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     color: #2b2b2b;
-    font-size: 23px;
+    font-size: 20px;
     text-shadow: 0 1px 0 #fff;
 }
 
-.homepage-form .title-input { 
-    width: 100%;
-    height: 20px;
+.homepage-form .param {
+    color:#2b2b2b
 }
 
-.homepage-description-textarea { 
-    display: flex;
-    width: 100%;
-    height: 60px;
+.homepage-form .title-textarea { 
+    width: 99%;
+    height: 20px;
     resize: none;
 }
 
@@ -83,9 +73,10 @@
     font-size: 18px;
 }
 
-.homepage-form .pgn-input { 
-    width: 100%;
-    height: 20px;
+.homepage-form .pgn-textarea { 
+    width: 99%;
+    height: 60px;
+    resize: none;
 }
 
 .homepage-form .move-input {
@@ -93,16 +84,16 @@
     height: 14px;
 }
 
-.homepage-form label {
-    font-size: 20px;
-}
-
 .homepage-form .label-parts { 
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .homepage-form select { 
     width: 60px;
     height: 20px;
+}
+
+.homepage-form button {
+    align-self: center;
 }

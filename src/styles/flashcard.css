@@ -37,19 +37,13 @@ button {
 .box {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: center;
     margin-bottom: 10px;
 }
 
 .block {
-    flex: 33%;
     width: 33vw;
     height: 33vw;
-}
-
-.descriptionTitle {
-    color: #4d4d4d;
-    font-size: 30px;
-    margin-bottom: 10px;
 }
 
 .backgr {
