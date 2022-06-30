@@ -12,18 +12,48 @@ button {
     cursor: pointer;
 
     width: 80px;
-    /* margin: auto; */
+}
+
+/* Top Line */
+.top-line { 
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 10px;
+    /* background-color: #ce9313; */
+}
+
+.sColor { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%
+} 
+
+.r {
+    /* background-color: red; */
+    width: 80px;
+    height: 67px;
+}
+
+.b {
+    /* background-color: blue; */
+    min-width: 200px;
+    flex-grow: 1;
+}
+
+.g {
+    /* background-color: green; */
+    width: 80px;
 }
 
 .title {
-    /* Text */
     color: #4d4d4d;
     font-size: 40px;
     text-shadow: 0 1px 0 #fff;
     /* font-family: 'Noto Sans', Sans-Serif; */
 
     padding: 10px 20px;
-    margin-bottom: 20px;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
     background-color: #dadada;
 }
@@ -33,21 +63,31 @@ button {
     flex-direction: column;
     align-items: center;
 }
+/* ////////////////////////////////////////////// */
 
+/* Main Line */
 .box {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
     margin-bottom: 10px;
 }
 
 .block {
-    width: 33vw;
+    flex: 32%;
+    width: 32vw;
     height: 33vw;
+}
+/* ////////////////////////////////////////////// */
+
+.descriptionTitle {
+    color: #4d4d4d;
+    font-size: 30px;
+    margin-bottom: 10px;
 }
 
 .backgr {
     background-color: #dadada;
+    margin-left: 10px;
 }
 
 .buttonBox {

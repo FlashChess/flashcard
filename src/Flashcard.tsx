@@ -33,7 +33,7 @@ const murmurhash = require('murmurhash');
 
 // http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
 
-export default function Flashcard(title: string, plannedPGN: string, move: number, turn: "white" | "black", orientation: "white" | "black") {
+export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: "white" | "black", orientation: "white" | "black") {
     // Variables that computed once
     const pgnArray = useRef<string[]>([]);
     const initialPGN = useRef<string>();
@@ -94,7 +94,7 @@ export default function Flashcard(title: string, plannedPGN: string, move: numbe
         appInsights.trackEvent({
             name: "HotSpot",
             properties: {
-                Name: "DoAgain", 
+                Name: "DoAgain",
                 Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
             }
         });
@@ -131,7 +131,7 @@ export default function Flashcard(title: string, plannedPGN: string, move: numbe
         numHints.current++;
         appInsights.trackEvent({
             name: "HotSpot",
-            properties: { 
+            properties: {
                 Name: "Hint",
                 Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
             }
@@ -261,14 +261,27 @@ export default function Flashcard(title: string, plannedPGN: string, move: numbe
 
     return (
         <div className="flashcard">
-            <div className="title-box">
-                <div>
-                    <div className="title">{title}</div>
+            <div className="top-line">
+                <div className="sColor r">
+                    <button onClick={goHome}>Home</button>
                 </div>
+                <div className="sColor b">
+                    <div className="title-box">
+                        <div>
+                            <div className="title">{title}</div>
+                        </div>
+                    </div>
+                </div>
+                <div className="sColor g" />
             </div>
 
             <div className="box">
-                <div className="block board">
+                <div className="block">
+                    <div className="descriptionTitle">Description</div>
+                    <div>{description}</div>
+                </div>
+
+                <div className="block">
                     <Chessground
                         viewOnly={myViewOnly}
                         fen={fen}
@@ -283,13 +296,14 @@ export default function Flashcard(title: string, plannedPGN: string, move: numbe
                         events={myEvents}
                     />
                 </div>
+
                 <div className="block">
                     <div className="backgr" id="PGNprint" />
                 </div>
             </div>
+
             <div className="buttonBox">
                 <button onClick={resetOfChess}>Do again</button>
-                <button onClick={goHome}>Home</button>
                 <button onClick={handleHint}>Hint</button>
             </div>
             <div className="gj">

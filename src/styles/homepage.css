@@ -23,14 +23,14 @@
     background-color: #dadada;
 }
 
-.homepage-project-descrition {
+.homepage-project-description {
     display: block;
     max-width: 500px;
     color:#4d4d4d;
     font-family: 'Noto Sans', Sans-Serif;
 }
 
-.homepage-project-descrition .paragraph {
+.homepage-project-description .paragraph {
     margin-bottom: 10px;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .homepage-form { 
-    height: 300px;
+    height: 320px;
     max-width: 500px;
     width: 100%;
     display: flex;
@@ -58,12 +58,6 @@
     color:#2b2b2b
 }
 
-.homepage-form .title-textarea { 
-    width: 99%;
-    height: 20px;
-    resize: none;
-}
-
 .homepage-form .pgn-text {
     display: flex;
     align-items: flex-end;
@@ -73,10 +67,14 @@
     font-size: 18px;
 }
 
-.homepage-form .pgn-textarea { 
+.homepage-form .pd-textarea { 
     width: 99%;
-    height: 60px;
+    height: 40px;
     resize: none;
+}
+
+.homepage-form .title-textarea { 
+    height: 17px;
 }
 
 .homepage-form .move-input {
@@ -96,4 +94,5 @@
 
 .homepage-form button {
     align-self: center;
+    margin-top: 10px;
 }

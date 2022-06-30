@@ -11,6 +11,7 @@ export default function Homepage() {
     const LinkPart = "https://flashchess.github.io/flashcard/?";
 
     const [title, setTitle] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
     const [pgn, setPGN] = useState<string>("");
     const [move, setMove] = useState<number>(1);
     const [turn, setTurn] = useState<string>("white");
@@ -23,7 +24,7 @@ export default function Homepage() {
                 Hash: murmurhash.v3(pgn + move + turn + orientation)
             }
         });
-        window.location.href = LinkPart + "title=" + title + "&pgn=" + pgn + "&move=" + move + "&turn=" + turn + "&orientation=" + orientation;
+        window.location.href = LinkPart + "title=" + title + "&description=" + description + "&pgn=" + pgn + "&move=" + move + "&turn=" + turn + "&orientation=" + orientation;
     }
 
     useEffect(() => {
@@ -34,13 +35,13 @@ export default function Homepage() {
         <div className="homepage-box">
             <div className="homepage-title">Welcome to FlashChess</div>
 
-            <div className="homepage-project-descrition">
+            <div className="homepage-project-description">
                 <div className="paragraph">
                     <b>FlashChess</b> - is a platform for learning chess openings. <br />
                 </div>
                 <div className="paragraph">Two ways how to use it:</div>
                 <div>1. Create opening flashcard like <a href={exampleLink}>this</a> and save its link somewhere <br />&nbsp;&nbsp;&nbsp; (e.g. in OneNote).</div>
-                <div>2. Create your accaount and save your flashcard there (in developing).</div>
+                <div>2. Create your account and save your flashcard there (in developing).</div>
             </div>
 
             <div className="homepage-form">
@@ -48,7 +49,12 @@ export default function Homepage() {
 
                 <div>
                     <div>Title</div>
-                    <textarea className="title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <textarea className="pd-textarea title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
+                </div>
+
+                <div>
+                    <div>Descritption</div>
+                    <textarea className="pd-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
 
                 <div>
@@ -58,7 +64,7 @@ export default function Homepage() {
                         <a className="link" href="https://lichess.org/analysis">lichess</a>
                         <div>)</div>
                     </div>
-                    <textarea className="pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
+                    <textarea className="pd-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                 </div>
 
                 <div className="label-parts">
