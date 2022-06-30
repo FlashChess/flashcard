@@ -34,6 +34,8 @@ const murmurhash = require('murmurhash');
 // http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
 
 export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: "white" | "black", orientation: "white" | "black") {
+    console.log(".");
+
     // Variables that computed once
     const pgnArray = useRef<string[]>([]);
     const initialPGN = useRef<string>();
