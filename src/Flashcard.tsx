@@ -190,6 +190,15 @@ export default function Flashcard(title: string, description: string, plannedPGN
         ind.current = startPoint.current;
     }, []);
 
+    useEffect(() => {
+        appInsights.trackEvent({
+            name: "Start",
+            properties: {
+                Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
+            }
+        })
+    }, []);
+
     const myViewOnly: Config['viewOnly'] = !(ind.current < pgnArray.current.length);
 
     const myChange = () => {

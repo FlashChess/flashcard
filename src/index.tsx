@@ -4,8 +4,6 @@ import { appInsights } from './Telemetry';
 import App from './App';
 import ChBoard from './flashcard/ChBoard';
 
-appInsights.loadAppInsights();
-appInsights.trackEvent({name: "Start"});
 console.log("session_ID:", appInsights.context.getSessionId());
 console.log("user_Id:", appInsights.context.user.id);
 
