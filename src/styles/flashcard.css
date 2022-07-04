@@ -1,5 +1,5 @@
 body {
-    background:            linear-gradient(to left top, blue, red);
+    /* background:            linear-gradient(to left top, blue, red); */
     background:            linear-gradient(to bottom, #f5f5f5 0%, #ededed 100%);  
     background-attachment: fixed; /*edit*/
 }
