@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { appInsights } from './Telemetry';
 import App from './App';
-import ChBoard from './flashcard/ChBoard';
 
+appInsights.loadAppInsights();
 console.log("session_ID:", appInsights.context.getSessionId());
 console.log("user_Id:", appInsights.context.user.id);
 
