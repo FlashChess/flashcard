@@ -14,8 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path = "/flashcard" element = { <App /> } />
-      <Route path = "/chboard" element = { <ChBoard /> } />
+      <Route path = "/" element = { <App /> } />
       <Route path = "*" element = { <h1>404</h1> } />
     </Routes>
   </BrowserRouter>
