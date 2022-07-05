@@ -1,5 +1,5 @@
 // Telemetry
-import { appInsights } from "./Telemetry";
+import { appInsights } from "../Telemetry";
 
 // Hooks
 import { useState, useRef, useEffect } from "react";

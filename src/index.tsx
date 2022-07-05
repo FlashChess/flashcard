@@ -1,7 +1,10 @@
+import { appInsights } from './Telemetry';
+
 import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { appInsights } from './Telemetry';
+
 import App from './App';
+import Homepage from './Homepage';
 
 appInsights.loadAppInsights();
 console.log("session_ID:", appInsights.context.getSessionId());
@@ -12,9 +15,9 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-	<HashRouter basename="/flashcard">
+	<HashRouter>
 		<Routes>
-			<Route path="/" element={<div><h1>Homepage</h1></div>} />
+			<Route path="/" element={<Homepage />} />
 			<Route path="/flashcard" element={<App />} />
 			<Route path="*" element={<h1>404</h1>} />
 		</Routes>
