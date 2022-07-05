@@ -20,8 +20,7 @@ import { Key } from "chessground/types";
 import { Square } from "chess.js";
 
 // CSS
-import "./styles/flashcard.css";
-import "./styles/board.css";
+import "../styles/flashcard.css";
 
 // Sound
 const moveSound = require("./sound/move.mp3");
