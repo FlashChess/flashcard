@@ -67,7 +67,7 @@ button {
 /* ////////////////////////////////////////////// */
 
 /* Main Line */
-.box {
+.box-chessboard-and-pgnprint {
     display: flex;
     flex-wrap: nowrap;
     margin-bottom: 10px;

@@ -21,6 +21,7 @@ import { Square } from "chess.js";
 
 // CSS
 import "./styles/flashcard.css";
+import "./styles/board.css";
 
 // Sound
 const moveSound = require("./sound/move.mp3");
@@ -284,7 +285,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 <div className="sColor g" />
             </div>
 
-            <div className="box">
+            <div className="box-chessboard-and-pgnprint">
                 <div className="block">
                     <div className="descriptionTitle">Description</div>
                     <div>{description}</div>
@@ -315,6 +316,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 <button onClick={resetOfChess}>Do again</button>
                 <button onClick={handleHint}>Hint</button>
             </div>
+
             <div className="gj">
                 {ind.current >= pgnArray.current.length && goodJob()}
             </div>
