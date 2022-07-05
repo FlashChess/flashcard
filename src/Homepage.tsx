@@ -1,4 +1,4 @@
-import "./homepage.css";
+import "./styles/homepage.css";
 
 export default function Homepage() {
     const handleClick = () => {

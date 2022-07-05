@@ -5,6 +5,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 
 import App from './App';
 import Homepage from './Homepage';
+import "./styles/index.css";
 
 appInsights.loadAppInsights();
 console.log("session_ID:", appInsights.context.getSessionId());
