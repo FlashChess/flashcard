@@ -1,0 +1,52 @@
+body {
+    --blue1: rgb(0, 150, 255);
+    --blue2: #0078d4;
+}
+
+.flashchess-org {
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 27px;
+    text-shadow: 0 1px 0 rgb(221, 221, 221);
+    font-family: 'Noto Sans', Sans-Serif;
+
+    padding: 10px 10px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+    background-color: var(--blue1);
+    margin-bottom: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-button {
+    background-color: white;
+    height: 50px;
+    width: 440px;
+
+    color: var(--blue1);
+    font-size: 25px;
+    white-space: nowrap;
+
+    border-color: var(--blue1);
+    border-radius: 5px;
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s,
+        color 0.15s;
+}
+
+.create-button:hover {
+    background-color: var(--blue1);
+    color: white;
+}
+
+.create-button:active {
+    opacity: 0.8;
+}
