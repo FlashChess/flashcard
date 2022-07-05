@@ -8,14 +8,14 @@ console.log("session_ID:", appInsights.context.getSessionId());
 console.log("user_Id:", appInsights.context.user.id);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+	document.getElementById('root') as HTMLElement
 );
 
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path = "/" element = { <App /> } />
-      <Route path = "*" element = { <h1>404</h1> } />
-    </Routes>
-  </BrowserRouter>
+	<BrowserRouter>
+		<Routes>
+			<Route path="/" element={<App />} />
+			<Route path="*" element={<h1>404</h1>} />
+		</Routes>
+	</BrowserRouter>
 );
