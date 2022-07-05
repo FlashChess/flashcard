@@ -23,10 +23,10 @@ import { Square } from "chess.js";
 import "../styles/flashcard.css";
 
 // Sound
-const moveSound = require("./sound/move.mp3");
-const captureSound = require("./sound/capture.mp3");
-const errorSound = require("./sound/error.mp3");
-const energySound = require("./sound/energy.mp3");
+const moveSound = require("./flashcard/sound/move.mp3");
+const captureSound = require("./flashcard/sound/capture.mp3");
+const errorSound = require("./flashcard/sound/error.mp3");
+const energySound = require("./flashcard/sound/energy.mp3");
 
 // Hash
 const murmurhash = require('murmurhash');
