@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-	<HashRouter>
+	<HashRouter basename="/flashcard">
 		<Routes>
 			<Route path="/" element={<div><h1>Homepage</h1></div>} />
 			<Route path="/flashcard" element={<App />} />
