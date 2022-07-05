@@ -60,8 +60,7 @@ export default function Homepage() {
                 <div>
                     <div className="pgn-text">
                         <div>PGN (</div>
-                        <div className="link">you can create it on&nbsp;</div>
-                        <a className="link" href="https://lichess.org/analysis">lichess</a>
+                        <div className="link">you can create it on&nbsp; <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
                         <div>)</div>
                     </div>
                     <textarea className="pd-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
