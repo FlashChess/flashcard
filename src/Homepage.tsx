@@ -7,10 +7,10 @@ export default function Homepage() {
 
     return (
         <div>
-            <div className="flashchess-org">flashchess.org</div>
+            <div className="flashchessorg-bar">flashchess.org</div>
 
-            <div className="box">
-                <div className="description-samples-box">
+            <div className="homepage-content">
+                <div className="description-examples-box">
                     <div className="flashchess-description">
 
                     </div>
