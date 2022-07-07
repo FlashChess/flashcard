@@ -1,98 +1,47 @@
-.homepage-box {
-    margin: auto;
-    height: 600px;
-    max-width: 700px;
+.flashchess-org {
+    color: #ffffff;
+    font-size: 30px;
+    line-height: 27px;
+    text-shadow: 0 1px 0 rgb(221, 221, 221);
+    font-family: 'Noto Sans', Sans-Serif;
+
+    padding: 10px 10px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+    background-color: var(--blue1);
+    margin-bottom: 20px;
+}
+
+.box {
     display: flex;
-    flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 
-.homepage-title {
-    /* Text */
-    text-align: center;
-    color: #4d4d4d;
-    font-size: 50px;
-    line-height: 50px;
-    text-shadow: 0 1px 0 #fff;
-    /* font-family: 'Noto Sans', Sans-Serif; */
+.create-button {
+    background-color: white;
+    height: 50px;
+    width: 440px;
 
-    padding: 10px 100px;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-    background-color: #dadada;
-}
-
-.homepage-project-description {
-    display: block;
-    max-width: 500px;
-    color:#4d4d4d;
-    font-family: 'Noto Sans', Sans-Serif;
-}
-
-.homepage-project-description .paragraph {
-    margin-bottom: 10px;
-}
-
-.homepage-text {
-    text-align: center;
-    color: #4d4d4d;
+    color: var(--blue1);
     font-size: 25px;
-    text-shadow: 0 1px 0 #fff;
+    white-space: nowrap;
+
+    border-color: var(--blue1);
+    border-radius: 5px;
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s,
+        color 0.15s;
 }
 
-.homepage-form { 
-    height: 320px;
-    max-width: 500px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    color: #2b2b2b;
-    font-size: 20px;
-    text-shadow: 0 1px 0 #fff;
+.create-button:hover {
+    background-color: var(--blue1);
+    color: white;
 }
 
-.homepage-form .param {
-    color:#2b2b2b
-}
-
-.homepage-form .pgn-text {
-    display: flex;
-    align-items: flex-end;
-}
-
-.homepage-form .link {
-    font-size: 18px;
-}
-
-.homepage-form .pd-textarea { 
-    width: 99%;
-    height: 40px;
-    resize: none;
-}
-
-.homepage-form .title-textarea { 
-    height: 17px;
-}
-
-.homepage-form .move-input {
-    width: 50px;
-    height: 14px;
-}
-
-.homepage-form .label-parts { 
-    display: flex;
-    justify-content: space-between;
-}
-
-.homepage-form select { 
-    width: 60px;
-    height: 20px;
-}
-
-.homepage-form button {
-    align-self: center;
-    margin-top: 10px;
+.create-button:active {
+    opacity: 0.8;
 }

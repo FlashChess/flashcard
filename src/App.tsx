@@ -1,16 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 
-import Flashcard from "./Flashcard";
-import Homepage from "./Homepage";
-
-// URL Api 
-// http://localhost:3000/flashcards/?
-// title=&
-// description=&
-// pgn=&
-// move=&
-// turn=&
-// orientation=
+import Flashcard from "./app/Flashcard";
+import CreateFlashcard from "./app/CreateFlashcard";
 
 export default function App(){
     // Read URL variables 
@@ -27,6 +18,6 @@ export default function App(){
         return (Flashcard(title, description, plannedPGN, parseInt(move), turn, orientation));
     }
     else {
-      return (<Homepage />);
+      return (<CreateFlashcard />);
     }
 }

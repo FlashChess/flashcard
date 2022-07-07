@@ -1,9 +1,3 @@
-body {
-    background:            linear-gradient(to bottom, #f5f5f5 0%, #ededed 100%);  
-    background-attachment: fixed;
-    --pointer-color: green; 
-}
-
 button {
     padding: 8px;
     background: #ffffff;
@@ -67,7 +61,7 @@ button {
 /* ////////////////////////////////////////////// */
 
 /* Main Line */
-.box {
+.box-chessboard-and-pgnprint {
     display: flex;
     flex-wrap: nowrap;
     margin-bottom: 10px;

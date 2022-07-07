@@ -1,5 +1,5 @@
 // Telemetry
-import { appInsights } from "./Telemetry";
+import { appInsights } from "../Telemetry";
 
 // Hooks
 import { useState, useRef, useEffect } from "react";
@@ -20,18 +20,16 @@ import { Key } from "chessground/types";
 import { Square } from "chess.js";
 
 // CSS
-import "./styles/flashcard.css";
+import "../styles/flashcard.css";
 
 // Sound
-const moveSound = require("./sound/move.mp3");
-const captureSound = require("./sound/capture.mp3");
-const errorSound = require("./sound/error.mp3");
-const energySound = require("./sound/energy.mp3");
+const moveSound = require("./flashcard/sound/move.mp3");
+const captureSound = require("./flashcard/sound/capture.mp3");
+const errorSound = require("./flashcard/sound/error.mp3");
+const energySound = require("./flashcard/sound/energy.mp3");
 
 // Hash
 const murmurhash = require('murmurhash');
-
-// http://localhost:3000/flashcard/?pgn=1.%20e4%20e5%202.%20Nf3%20Nc6%203.%20Bb5%20a6%204.%20Ba4%20Nf6%205.%20O-O%20Be7%206.%20Re1%20b5%207.%20Bb3&move=3&turn=black&orientation=white&title=Closed%20Ruy%20Lopez&description=Black%20chose%20not%20to%20capture%20White%27s%20e-pawn%20on%20the%20previous%20move,%20but%20the%20threat%20still%20hangs%20over%20White%27s%20head.%20White%20typically%20removes%20it%20with
 
 export default function Flashcard(title: string, description: string, plannedPGN: string, move: number, turn: "white" | "black", orientation: "white" | "black") {
     // Variables that computed once
@@ -284,7 +282,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 <div className="sColor g" />
             </div>
 
-            <div className="box">
+            <div className="box-chessboard-and-pgnprint">
                 <div className="block">
                     <div className="descriptionTitle">Description</div>
                     <div>{description}</div>
@@ -315,6 +313,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 <button onClick={resetOfChess}>Do again</button>
                 <button onClick={handleHint}>Hint</button>
             </div>
+
             <div className="gj">
                 {ind.current >= pgnArray.current.length && goodJob()}
             </div>
