@@ -283,7 +283,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
             </div>
 
             <div className="box-chessboard-and-pgnprint">
-                <div className="block">
+                <div className="block description-padding">
                     <div className="descriptionTitle">Description</div>
                     <div>{description}</div>
                 </div>
