@@ -137,7 +137,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
     };
 
     const goHome = () => {
-        window.location.href = "https://flashchess.github.io/flashcard/";
+        window.location.href = "https://flashchess.org";
     }
 
     const goodJob = () => {

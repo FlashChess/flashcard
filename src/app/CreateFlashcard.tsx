@@ -5,7 +5,6 @@ import { appInsights } from "../Telemetry";
 import { useEffect, useState } from 'react';
 import "../styles/create-flashcard.css";
 const murmurhash = require('murmurhash');
-const exampleLink = "https://flashchess.github.io/flashcard/?pgn=1.%20e4%20e6%202.%20d3%20d5%203.%20Nd2%20Nf6%204.%20Ngf3%20c5%205.%20g3%20Nc6%206.%20Bg2%20Be7%207.%20O-O%20O-O%208.%20Re1%20b5%209.%20e5%20Nd7%2010.%20Nf1%20a5%2011.%20h4%20b4&move=3&turn=black&orientation=black&title=C00%20French%20Defense:%20King%27s%20Indian%20Attack%20&description=Main";
 
 export default function CreateFlashcard() {
     const LinkPart = "https://flashchess.org/#/flashcard/?";
@@ -28,7 +27,7 @@ export default function CreateFlashcard() {
     }
 
     useEffect(() => {
-        appInsights.trackEvent({ name: "Home" });
+        appInsights.trackEvent({ name: "Create Page" });
     }, []);
 
     useEffect(() => {
