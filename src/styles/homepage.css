@@ -1,4 +1,4 @@
-.flashchess-org {
+.flashchessorg-bar {
     color: #ffffff;
     font-size: 30px;
     line-height: 27px;
@@ -11,12 +11,13 @@
     margin-bottom: 20px;
 }
 
-.box {
+.homepage-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Create your own opening flashcard Button */
 .create-button {
     background-color: white;
     height: 50px;
