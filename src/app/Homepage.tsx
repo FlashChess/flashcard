@@ -2,7 +2,7 @@ import "../styles/homepage.css";
 
 export default function Homepage() {
     const handleClick = () => {
-        window.location.href = "https://flashchess.org/#/flashcard";
+        window.location.href = "https://flashchess.org/#/create";
     }
 
     const flashcardWikipedia = "https://en.wikipedia.org/wiki/Flashcard";
