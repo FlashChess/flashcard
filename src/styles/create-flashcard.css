@@ -6,7 +6,7 @@
     transform: translate(-50%, -50%);
 }
 .newFlashcard-form { 
-    height: 350px;
+    height: 400px;
     min-width: 490px;
     width: 90vw;                               /* I don't think it's right. */
     max-width: 590px;
@@ -31,6 +31,10 @@
 
 .newFlashcard-form .link {
     font-size: 18px;
+}
+
+.newFlashcard-form textarea {
+    border: 3.15px solid rgb(220, 220, 220);
 }
 
 .newFlashcard-form .pd-textarea { 

@@ -13,7 +13,7 @@ export default function PreFlashcard(){
     var turn : "white" | "black" = (searchParams.get("turn") === "black") ? "black" : "white";
     var orientation : "white" | "black" = (searchParams.get("orientation") === "black") ? "black" : "white";
 
-    if (plannedPGN !== null && (move !== null && parseInt(move) !== null)){
+    if ((plannedPGN !== null && plannedPGN !== "") && (move !== null && parseInt(move) !== null)){
         return (Flashcard(title, description, plannedPGN, parseInt(move), turn, orientation));
     }
     else {

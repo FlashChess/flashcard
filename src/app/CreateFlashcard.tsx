@@ -38,7 +38,6 @@ export default function CreateFlashcard() {
 
     return (
         <div>
-            <div className="flashchessorg-bar">flashchess.org</div>
             <div className="newFlashcard-form-box">
                 <div className="newFlashcard-form">
                     <div className="newFlashcard-text param">Create your own opening flashcard:</div>
@@ -56,7 +55,7 @@ export default function CreateFlashcard() {
                     <div>
                         <div className="pgn-text">
                             <div>PGN (</div>
-                            <div className="link">you can create it on&nbsp; <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
+                            <div className="link">you can create it on <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
                             <div>)</div>
                         </div>
                         <textarea className="pd-textarea pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
