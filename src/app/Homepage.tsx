@@ -45,22 +45,19 @@ export default function Homepage() {
                         </div>
                     </div>
                     <div className="examples-table-box">
-                        <div className="table-title">Give it a try! Here is a list of flashcards which we pre-created:</div>
+                        <div className="table-title-try">Give it a try!</div>
+                        <div className="table-title-pre-created">Here is a list of flashcards which we pre-created:</div>
 
                         <table className="examples-table">
+                            <tbody>
                                 <tr><td><a className="table-line top-border" href={example1}>Queen's Gambit Accepted (Classic Nf3)</a></td></tr>
                                 <tr><td><a className="table-line" href={example2}>Queen's Gambit Declined Exchange Variation (5. Bg5 c6)</a></td></tr>
                                 <tr><td><a className="table-line" href={example3}>Najdorf Sicilian, English Attack (12 g5)</a></td></tr>
                                 <tr><td><a className="table-line" href={example4}>Caro-Kann Defence: Classical Variation</a></td></tr>
                                 <tr><td><a className="table-line" href={example5}>French Defence: Advance Variation, Euwe Variation</a></td></tr>
+                            </tbody>
                         </table>
                     </div>
-                </div>
-
-                <div className="description-of-work">
-                    <div className="p2">Two ways how to use it:</div>
-                    <div className="p2">1. Create opening flashcard and save its link somewhere <br />(e.g. in OneNote).</div>
-                    <div className="p2">2. Create your account and save your flashcard there (in developing).</div>
                 </div>
 
                 <button className="create-button" onClick={handleClick}>Create your own opening flashcard</button>
