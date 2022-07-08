@@ -5,16 +5,20 @@ body {
     --blue2: rgb(0, 120, 210);
     --blue3: rgb(0, 130, 210);
     --blue4: rgb(131, 188, 231);
-    --dd: rgb(35, 63, 83);
     --pointer-color: var(--blue2); 
+
+    --nav-bar-height: 50px;
 }
 
 .nav-bar {
     position: fixed;
     top: 0px;
     left: 0px;
+
     width: 100%;
-    padding: 10px;
+    height: var(--nav-bar-height);
+    display: flex;
+    align-items: center;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
     background: linear-gradient(270deg, var(--blue2) 0%, var(--blue3) 100%); 
 }
@@ -22,11 +26,14 @@ body {
 .nav-bar .flashchess-org {
     color: white;
     font-size: 1.4em;
-    height: 1.4em;
     font-family: Segoe UI;
     font-weight: 400;
+
+    height: 1.4em;
+    width: fit-content;
+    margin-left: 10px;
 }
 
 .content-container {
-    margin-top: calc(1.4em + 30px);
+    margin-top: var(--nav-bar-height);
 }
