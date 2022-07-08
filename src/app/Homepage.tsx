@@ -15,8 +15,6 @@ export default function Homepage() {
 
     return (
         <div>
-            <div className="flashchessorg-bar">flashchess.org</div>
-
             <div className="homepage-content">
                 <div className="descriptionAndExamples-box">
                     <div className="flashchess-description">
