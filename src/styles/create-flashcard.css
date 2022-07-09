@@ -1,12 +1,20 @@
 .newFlashcard-form-box {
+    height: calc(100vh - (var(--nav-bar-height) + 10px)); 
+    /*
+        Reason why there is only (+10px) and not (+20px):
+        100vh it's 100% of viewport height all items that don't have position property set to fixed (or absolute in viewport)
+        have 10px padding from top and bottom. 
+        But nav-bar's position property is fixed and top: 0; So its height includes the top 10px. So there is added only
+        bottom 10px;  
+    */
     display: flex;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .newFlashcard-form { 
-    height: 350px;
+    height: 600px;
     min-width: 490px;
     width: 90vw;                               /* I don't think it's right. */
     max-width: 590px;
@@ -33,45 +41,56 @@
     font-size: 18px;
 }
 
-.newFlashcard-form .pd-textarea { 
+.newFlashcard-form textarea {
     width: 99%;
     height: 40px;
     resize: none;
 
     border-radius: 5px;
+    border: 3.15px solid rgb(220, 220, 220);
 }
 
 .newFlashcard-form .title-textarea { 
-    height: 17px;
+    height: 20px;
 }
 
 .newFlashcard-form .pgn-textarea {
-    height: 60px;
+    height: 80px;
+}
+
+.newFlashcard-form .text {
+    margin-bottom: 7px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.newFlashcard-form .text .text-1st-div {
+    margin-bottom: 10px;
 }
 
 .newFlashcard-form .move-input {
-    width: 50px;
-    height: 16px;
-    border-width: 1px;
-    border-top-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-right-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-bottom-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-left-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    width: 54px;
+    height: 25.5px;
+    border: 1px solid rgb(100, 100, 100);
     border-radius: 5px;
-}
-
-.newFlashcard-form .label-parts { 
-    display: flex;
-    justify-content: space-between;
+    padding-left: 4px;
 }
 
 .newFlashcard-form select { 
-    width: 60px;
-    height: 20px;
+    padding: 1px;
+    width: 62px;
+    height: 30px;
     border-radius: 5px;
 }
 
-.newFlashcard-form button {
-    align-self: center;
-    margin-top: 5px;
+.newFlashcard-form table {
+    width: fit-content;
+}
+
+.newFlashcard-form td {
+    padding: 5px;
+}
+
+.newFlashcard-form .create-button{
+    width: 100%;
 }

@@ -1,109 +1,120 @@
-button {
-    padding: 8px;
-    background: #ffffff;
-    color: rgb(0, 0, 0);
-    border: 10;
-    border-radius: 8px;
-    cursor: pointer;
-
-    width: 80px;
+.flashcard {
+    padding-top: 10px;
 }
 
 /* Top Line */
-.top-line { 
-    display: flex;
-    height: fit-content;
-    width: 100%;
-    margin-bottom: 10px;
-    /* background-color: #ce9313; */
-}
-
-.sColor { 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%
-} 
-
-.r {
-    /* background-color: red; */
-    width: 80px;
-    height: 67px;
-}
-
-.b {
-    /* background-color: blue; */
-    min-width: 200px;
-    flex-grow: 1;
-}
-
-.g {
-    /* background-color: green; */
-    width: 80px;
-}
-
-.title {
-    color: #4d4d4d;
-    font-size: 40px;
-    text-shadow: 0 1px 0 #fff;
-    /* font-family: 'Noto Sans', Sans-Serif; */
-
-    padding: 10px 20px;
-    box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
-    background-color: rgb(240, 240, 240);
-}
-
-.title-box { 
+.flashcard .top-line { 
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/* ////////////////////////////////////////////// */
 
-/* Main Line */
-.box-chessboard-and-pgnprint {
-    display: flex;
-    flex-wrap: nowrap;
+.flashcard .title {
+    color: #4d4d4d;
+    font-size: 35px;
+    /* font-family: Segoe UI; */
+    white-space: nowrap;
+    text-shadow: 0 1px 0 #fff;
+
+    padding: 10px 20px;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+    background-color: rgb(240, 240, 240);
     margin-bottom: 10px;
 }
 
-.block {
-    flex: 32%;
-    width: 32vw;
-    height: 33vw;
-}
 /* ////////////////////////////////////////////// */
 
-.descriptionTitle {
+.flashcard .middle-line { 
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: fit-content;
+}
+
+.middle-line .description-box {
+    min-width: 330px;
+    width: 330px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.middle-line .board-buttons-with-pgn {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.middle-line .board-with-buttons {
+
+}
+
+.middle-line .board { 
+    --edge: min(calc(100vh - 300px), calc(100vw - 720px));
+    width: var(--edge);
+    height: var(--edge);
+    min-width: 480px;
+    min-height: 480px;
+    margin-bottom: 10px;
+}
+
+.middle-line .pgn-box { 
+    width: 330px;
+    margin-left: 20px;
+}
+
+.description-box .descriptionTitle {
     color: #4d4d4d;
     font-size: 30px;
     margin-bottom: 10px;
 }
 
-.description-padding {
-    padding-right: 10px;
-}
-
-.backgr {
+.pgn-box .backgr {
     --gray-100: rgb(240, 240, 240);
     background-color: white;
-    margin-left: 10px;
     border: 5px solid rgb(220, 220, 220);
-    border-radius: 5px
+    border-radius: 5px;
+    min-height: 21.6px;
 }
 
-.buttonBox {
-    width: 20vw;
-    margin: auto;
+.flashcard .buttonBox {
     display: flex;
     justify-content: space-around;
     margin-bottom: 10px;
 }
 
-.gj {
+.buttonBox button {
+    background: linear-gradient(to bottom, white 0%, #cfcfcf 100%);
+    height: 35px;
+    width: 100px;
+
+    color: rgb(120, 120, 120);
+    font-size: 20px;
+    font-family: 'Roboto', Sans-Serif;
+    font-weight: 600;
+    white-space: nowrap;
+
+    border: 2px solid rgb(120, 120, 120);
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: all 150ms;
+}
+
+.buttonBox button:hover {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 23%);
+}
+
+.buttonBox button:active {
+    opacity: 0.8;
+}
+
+.flashcard .gj {
     margin: auto;
     text-align: center;
     color: #ce9313;
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: 0 1px 0 rgb(53, 53, 53);
 }

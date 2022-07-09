@@ -2,6 +2,95 @@ body {
     background:            linear-gradient(to bottom, #f5f5f5 0%, #ededed  100%);  
     background-attachment: fixed;
     --blue1: rgb(0, 150, 255);
-    --blue2: #0078d4;
+    --blue2: rgb(0, 120, 210);
+    --blue3: rgb(0, 130, 210);
+    --blue4: rgb(200, 230, 255);
+    --blue5: rgb(220, 240, 255);
+    --red1: rgb(220, 0, 0);
+    --green1: rgb(76, 185, 104);
+    --black1: black;
+
+    --button-color: var(--green1);
     --pointer-color: var(--blue2); 
+
+    --nav-bar-height: 50px;
+}
+
+textarea, input, select {
+    font-family: Segoe UI;
+    font-size: 15px;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: var(--nav-bar-height);
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+    background: linear-gradient(270deg, var(--blue2) 0%, var(--blue3) 100%); 
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-bar .flashchess-org {
+    color: white;
+    font-size: 1.4em;
+    font-family: Segoe UI;
+    font-weight: 400;
+
+    height: 1.4em;
+    width: fit-content;
+    margin-left: 10px;
+}
+
+.nav-bar .buttons-box {
+    /* background-color: red; */
+    min-width: fit-content;
+    white-space: nowrap;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.buttons-box button{
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    white-space: nowrap;
+    width: fit-content;
+    padding: 8px;
+    font-size: 0.9em;
+    /* font-weight: 600; */
+    cursor: pointer;
+
+    --transition-time: 0.15s;
+    transition:
+        backround-color var(--transition-time),
+        color var(--transition-time),
+        padding var(--transition-time),
+        margin-right var(--transition-time),
+        margin-left var(--transition-time); 
+}
+
+.buttons-box button:hover {
+    background-color: white;
+    color: var(--button-color);
+    padding: 10px;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.buttons-box button:active {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.content-container {
+    margin-top: var(--nav-bar-height);
 }
