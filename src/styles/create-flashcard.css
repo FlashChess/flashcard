@@ -34,19 +34,16 @@
 }
 
 .newFlashcard-form textarea {
-    border: 3.15px solid rgb(220, 220, 220);
-}
-
-.newFlashcard-form .pd-textarea { 
     width: 99%;
     height: 40px;
     resize: none;
 
     border-radius: 5px;
+    border: 3.15px solid rgb(220, 220, 220);
 }
 
 .newFlashcard-form .title-textarea { 
-    height: 17px;
+    height: 20px;
 }
 
 .newFlashcard-form .pgn-textarea {

@@ -1,4 +1,7 @@
+import { appInsights } from "../Telemetry";
+
 import "../styles/homepage.css";
+import { useEffect } from "react";
 
 export default function Homepage() {
     const handleClick = () => {
@@ -12,6 +15,11 @@ export default function Homepage() {
     const example4 = "https://flashchess.org/#/flashcard?title=Caro-Kann%20Defence:%20Classical%20Variation&description=The%20vast%20majority%20of%20times,%20black%20plays%20the%20solid%203...dxe4,%20one%20of%20the%20most%20well-studied%20of%20the%20Caro-Kann%20lines.%20Black%20has%20alternatives%20to%20avoid%20the%20weight%20of%20theory,%20although%203...e6,%20blocking%20the%20bishop,%20and%20effectively%20forming%20a%20French,%20with%20one%20tempo%20less,%20seems%20a%20dubious%20line.&pgn=1.%20e4%20c6%202.%20d4%20d5%203.%20Nc3%20dxe4%204.%20Nxe4%20Bf5%205.%20Ng3%20Bg6%206.%20h4%20h6%207.%20Nf3%20Nd7%208.%20h5%20Bh7%209.%20Bd3%20Bxd3%2010.%20Qxd3%20e6%2011.%20Bd2%20Ngf6%2012.%20O-O-O%20Be7%2013.%20Kb1%20O-O&move=1&turn=black&orientation=black";
     const example5 = "https://flashchess.org/#/flashcard/?title=French%20Defence:%20Advance%20Variation,%20Euwe%20Variation&description=White%20gains%20some%20space%20advantage%20immediately,%20and%20prevents%20Black%20from%20developing%20their%20king%27s%20knight%20to%20its%20most%20natural%20square%20f6.%20Black%27s%20plan%20is%20straightforward:%20They%20want%20to%20eliminate%20White%27s%20pawns%20on%20d4/e5%20-%20and%20after%20doing%20so,%20Black%20will%20find%20it%20easier%20to%20develop%20the%20pieces%20of%20their%20kingside%20to%20good%20squares.&pgn=1.%20e4%20e6%202.%20d4%20d5%203.%20e5%20c5%204.%20c3%20Nc6%205.%20Nf3%20Bd7%206.%20Be2%20Nge7%207.%20Na3%20cxd4%208.%20cxd4%20Nf5%209.%20Nc2%20Qb6%2010.%20O-O&move=2&turn=black&orientation=black";
 
+    useEffect(() => {
+        appInsights.trackEvent({
+            name: "Home"
+        });
+    }, []);
 
     return (
         <div>

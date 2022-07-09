@@ -44,12 +44,12 @@ export default function CreateFlashcard() {
 
                     <div>
                         <div>Title</div>
-                        <textarea className="pd-textarea title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <textarea className="title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
 
                     <div>
                         <div>Descritption</div>
-                        <textarea className="pd-textarea" value={description} onChange={(e) => setDescription(e.target.value)} />
+                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
                     </div>
 
                     <div>
@@ -58,7 +58,7 @@ export default function CreateFlashcard() {
                             <div className="link">you can create it on <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
                             <div>)</div>
                         </div>
-                        <textarea className="pd-textarea pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
+                        <textarea className="pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                     </div>
 
                     <div className="label-parts">
