@@ -136,10 +136,6 @@ export default function Flashcard(title: string, description: string, plannedPGN
         })
     };
 
-    const goHome = () => {
-        window.location.href = "https://flashchess.org";
-    }
-
     const goodJob = () => {
         playEnergySound();
 
@@ -269,49 +265,45 @@ export default function Flashcard(title: string, description: string, plannedPGN
     return (
         <div className="flashcard">
             <div className="top-line">
-                <div className="sColor r">
-                    <button onClick={goHome}>Home</button>
+                <div>
+                    <div className="title">{title}</div>
                 </div>
-                <div className="sColor b">
-                    <div className="title-box">
-                        <div>
-                            <div className="title">{title}</div>
-                        </div>
-                    </div>
-                </div>
-                <div className="sColor g" />
             </div>
 
-            <div className="box-chessboard-and-pgnprint">
-                <div className="block description-padding">
+            <div className="middle-line">
+                <div className="board-buttons-with-pgn">
+                    <div className="board-with-buttons">
+                        <div className="board">
+                            <Chessground
+                                viewOnly={myViewOnly}
+                                fen={fen}
+                                orientation={orientation}
+                                turnColor={turnColor}
+                                movable={myMovable}
+                                check={chess.in_check()}
+                                lastMove={myLastMove}
+                                highlight={myHighlight}
+                                animation={myAnimation}
+                                draggable={myDraggable}
+                                events={myEvents}
+                            />
+                        </div>
+
+                        <div className="buttonBox">
+                            <button onClick={resetOfChess}>Do again</button>
+                            <button onClick={handleHint}>Hint</button>
+                        </div>
+                    </div>
+
+                    <div className="pgn-box">
+                        <div className="backgr" id="PGNprint" />
+                    </div>
+                </div>
+
+                <div className="description-box">
                     <div className="descriptionTitle">Description</div>
                     <div>{description}</div>
                 </div>
-
-                <div className="block">
-                    <Chessground
-                        viewOnly={myViewOnly}
-                        fen={fen}
-                        orientation={orientation}
-                        turnColor={turnColor}
-                        movable={myMovable}
-                        check={chess.in_check()}
-                        lastMove={myLastMove}
-                        highlight={myHighlight}
-                        animation={myAnimation}
-                        draggable={myDraggable}
-                        events={myEvents}
-                    />
-                </div>
-
-                <div className="block">
-                    <div className="backgr" id="PGNprint" />
-                </div>
-            </div>
-
-            <div className="buttonBox">
-                <button onClick={resetOfChess}>Do again</button>
-                <button onClick={handleHint}>Hint</button>
             </div>
 
             <div className="gj">

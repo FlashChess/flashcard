@@ -61,27 +61,41 @@ export default function CreateFlashcard() {
                         <textarea className="pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                     </div>
 
-                    <div className="label-parts">
-                        <div>
-                            <label>Start move: <input className="move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></label>
-                        </div>
-                        <div>
-                            <label>Turn: <select value={turn} onChange={(e) => setTurn(e.target.value)}>
-                                <option value="white">white</option>
-                                <option value="black">black</option>
-                            </select>
-                            </label>
-                        </div>
-                        <div>
-                            <label>Orientation: <select value={orientation} onChange={(e) => setOrientation(e.target.value)}>
-                                <option value="white">white</option>
-                                <option value="black">black</option>
-                            </select>
-                            </label>
-                        </div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Start move</td>
+                                <td><input className="move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></td>
+                            </tr>
+                            <tr>
+                                <td>Turn</td>
+                                <td>
+                                    <select value={turn} onChange={(e) => setTurn(e.target.value)}>
+                                        <option value="white">white</option>
+                                        <option value="black">black</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Orientation</td>
+                                <td>
+                                    <select value={orientation} onChange={(e) => setOrientation(e.target.value)}>
+                                        <option value="white">white</option>
+                                        <option value="black">black</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div className="text">
+                        <div className="text-1st-div">* Currently we support only opening flashcards through links. Once created (you will be navigated to a new page), copy its link (URL) and save it somewhere (e.g., OneNote). </div>
+                        <div>** We're working on account system and maintaining your opening library online. Stay tuned!</div>
                     </div>
 
-                    <button onClick={Create}>Create</button>
+                    <div className="create-button-box">
+                        <button className="create-button" onClick={Create}>Create</button>
+                    </div>
                 </div>
             </div>
         </div>
