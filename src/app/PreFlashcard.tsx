@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 
-import Flashcard from "./app/Flashcard";
+import Flashcard from "./Flashcard";
 
 export default function PreFlashcard(){
     // Read URL variables 

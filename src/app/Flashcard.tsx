@@ -137,7 +137,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
     };
 
     const goHome = () => {
-        window.location.href = "https://flashchess.github.io/flashcard/";
+        window.location.href = "https://flashchess.org";
     }
 
     const goodJob = () => {
@@ -283,7 +283,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
             </div>
 
             <div className="box-chessboard-and-pgnprint">
-                <div className="block">
+                <div className="block description-padding">
                     <div className="descriptionTitle">Description</div>
                     <div>{description}</div>
                 </div>

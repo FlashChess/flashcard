@@ -49,8 +49,8 @@ button {
     /* font-family: 'Noto Sans', Sans-Serif; */
 
     padding: 10px 20px;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-    background-color: #dadada;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+    background-color: rgb(240, 240, 240);
 }
 
 .title-box { 
@@ -80,9 +80,16 @@ button {
     margin-bottom: 10px;
 }
 
+.description-padding {
+    padding-right: 10px;
+}
+
 .backgr {
-    background-color: #dadada;
+    --gray-100: rgb(240, 240, 240);
+    background-color: white;
     margin-left: 10px;
+    border: 5px solid rgb(220, 220, 220);
+    border-radius: 5px
 }
 
 .buttonBox {
