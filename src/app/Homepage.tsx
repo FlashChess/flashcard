@@ -50,23 +50,28 @@ export default function Homepage() {
                             Upon replaying, FlashChess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! FlashChess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.
                         </div>
                     </div>
-                    <div className="examples-table-box">
-                        <div className="table-title-try">Give it a try!</div>
-                        <div className="table-title-pre-created">Here is a list of flashcards which we pre-created:</div>
 
-                        <table className="examples-table">
-                            <tbody>
-                                <tr><td><a className="table-line top-border" href={example1}>Queen's Gambit Accepted (Classic Nf3)</a></td></tr>
-                                <tr><td><a className="table-line" href={example2}>Queen's Gambit Declined Exchange Variation (5. Bg5 c6)</a></td></tr>
-                                <tr><td><a className="table-line" href={example3}>Najdorf Sicilian, English Attack (12 g5)</a></td></tr>
-                                <tr><td><a className="table-line" href={example4}>Caro-Kann Defence: Classical Variation</a></td></tr>
-                                <tr><td><a className="table-line" href={example5}>French Defence: Advance Variation, Euwe Variation</a></td></tr>
-                            </tbody>
-                        </table>
+                    <div className="examples-table-box">
+                        <div className="examples-table-second-box">
+                            <div className="table-title-try">Give it a try!</div>
+                            <div className="table-title-pre-created">Here is a list of flashcards which we pre-created:</div>
+
+                            <table className="examples-table">
+                                <tbody>
+                                    <tr><td><a className="table-line top-border" href={example1}>Queen's Gambit Accepted (Classic Nf3)</a></td></tr>
+                                    <tr><td><a className="table-line" href={example2}>Queen's Gambit Declined Exchange Variation (5. Bg5 c6)</a></td></tr>
+                                    <tr><td><a className="table-line" href={example3}>Najdorf Sicilian, English Attack (12 g5)</a></td></tr>
+                                    <tr><td><a className="table-line" href={example4}>Caro-Kann Defence: Classical Variation</a></td></tr>
+                                    <tr><td><a className="table-line" href={example5}>French Defence: Advance Variation, Euwe Variation</a></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="examples-table-box-button-container">
+                            <button className="create-button" onClick={handleClick}>Create your own opening flashcard</button>
+                        </div>
                     </div>
                 </div>
-
-                <button className="create-button" onClick={handleClick}>Create your own opening flashcard</button>
             </div>
         </div>
     );
