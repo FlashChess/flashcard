@@ -46,9 +46,6 @@
     flex-wrap: wrap;
 }
 
-.middle-line .board-with-buttons {
-}
-
 .middle-line .board { 
     --edge: min(calc(100vh - 300px), calc(100vw - 720px));
     width: var(--edge);
