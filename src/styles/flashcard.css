@@ -18,7 +18,7 @@
 
     padding: 10px 20px;
     box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
-    background-color: rgb(240, 240, 240);
+    background-color: white;
     margin-bottom: 10px;
 }
 
@@ -34,20 +34,22 @@
 }
 
 .middle-line .description-box {
-    min-width: 330px;
-    width: 330px;
-    margin-right: 20px;
+    min-width: 350px;
+    width: 350px;
+    padding-right: 20px;
     margin-bottom: 10px;
+}
+
+.middle-line .description-box .description-part-of-flashcard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .middle-line .board-buttons-with-pgn {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-}
-
-.middle-line .board-with-buttons {
-
 }
 
 .middle-line .board { 
@@ -114,7 +116,7 @@
 .flashcard .gj {
     margin: auto;
     text-align: center;
-    color: #ce9313;
+    color: var(--green1);
     font-size: 30px;
     text-shadow: 0 1px 0 rgb(53, 53, 53);
 }

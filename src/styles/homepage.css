@@ -9,18 +9,20 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
+    max-width: 1500px;
     padding-top: 15px;
 }
 
 .flashchess-description {
     min-width: 500px;
-    width: 45vw;
+    max-width: 800px;
+    width: 60vw;
 
     padding: 0px 10px;
     border-radius: 20px;
     background-color: white;
 
-    border: 2px solid var(--pointer-color);
+    /* border: 2px solid var(--pointer-color); */
 
     margin-bottom: 15px;
 }
@@ -42,35 +44,40 @@
 }
 
 .examples-table-box {
+    /* min-width: max(500px, 12cm); */ /* just an idea */
     min-width: 500px;
+    max-width: 550px;
     width: 45vw;
+    margin-bottom: 15px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+}
 
-    padding: 0px 10px;
+.examples-table-box .examples-table-second-box {
+    padding: 20px 20px;
     border-radius: 20px;
     background-color: white;
-
-    border: 2px solid var(--pointer-color);
 
     font-size: 1.05em;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
-
-    margin-bottom: 15px;
 }
 
 .table-title-try{
-    font-size: 1.3em;
+    font-size: 1.6em;
     margin-bottom: 10px;
+    --temp: 40;
+    color:rgb(var(--temp), var(--temp), var(--temp));
 }
 
 .table-title-pre-created {
     font-size: 1.23em;
     margin-bottom: 10px;
+    --temp: 40;
+    color:rgb(var(--temp), var(--temp), var(--temp));
 }
 
 .examples-table-box table {
@@ -86,6 +93,14 @@
 
 .table-line {
     color: var(--pointer-color);
+}
+
+.examples-table-box .examples-table-box-button-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 /* Create your own opening flashcard Button */

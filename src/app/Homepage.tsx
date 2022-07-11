@@ -9,11 +9,12 @@ export default function Homepage() {
     }
 
     const flashcardWikipedia = "https://en.wikipedia.org/wiki/Flashcard";
-    const example1 = "https://flashchess.org/#/flashcard/?title=Queen%27s%20Gambit%20Accepted%20(Classic%20Nf3)&description=It%20is%20not%20really%20much%20of%20a%20gambit%20since%20white%20can%20recover%20the%20pawn%20immediately%20with%203.%20Qa4+,%20though%20unless%20white%20wants%20the%20queen%20placed%20on%20c4,%20this%20is%20unnecessary.%20Black%20does%20better%20not%20to%20hold%20on%20to%20the%20pawn.%20Attempts%20to%20immediately%20support%20it%20with%20either%203...b5%20or%203...Be6%20are%20not%20advisable.%20Black%27s%20biggest%20concern%20is%20to%20take%20advantage%20of%20the%20time%20it%20takes%20white%20to%20recover%20the%20pawn%20to%20get%20the%20pieces%20active%20and%20prepare%20for%20key%20pawn%20breaks%20in%20the%20center%20(usually%20...c5%20or%20...e5).%20White%20usually%20has%20better%20control%20of%20the%20center%20and%20has%20an%20easier%20time%20developing%20an%20advantage,%20but%20must%20play%20well%20to%20achieve%20this.&pgn=1.%20d4%20d5%202.%20c4%20dxc4%203.%20Nf3%20Nf6%204.%20e3%20e6%205.%20Bxc4%20c5%206.%20O-O%20a6&move=2&turn=black&orientation=white";
-    const example2 = "https://flashchess.org/#/flashcard/?title=Queen%27s%20Gambit%20Declined%20Exchange%20Variation%20(Long)%20(5.%20Bg5%20c6)&description=With%203...Nf6%20Black%20begins%20the%20development%20of%20his%20minor%20pieces,%20continues%20to%20fight%20for%20the%20center,%20including%20the%20battleground%20squares%20d5%20and%20e4,%20and%20gets%20closer%20to%20castling.&pgn=1.%20d4%20d5%202.%20c4%20e6%203.%20Nc3%20Nf6%204.%20cxd5%20exd5%205.%20Bg5%20c6%206.%20e3%20Be7%207.%20Bd3%20Nbd7%208.%20Qc2%20O-O%209.%20Nge2%20Re8%2010.%20O-O%20Nf8%2011.%20f3%20Be6%2012.%20Rad1%20Rc8%2013.%20Kh1%20Ng6%2014.%20a3%20Nd7%2015.%20Bxe7%20Qxe7%2016.%20b4%20Nb6&move=2&turn=black&orientation=black";
-    const example3 = "https://flashchess.org/#/flashcard/?title=Najdorf%20Sicilian,%20English%20Attack%20(12%20g5)&description=Plan%20for%20white%20pawn%20attack%20on%20the%20g%20line%20after%20castling.&pgn=1.%20e4%20c5%202.%20Nf3%20d6%203.%20d4%20cxd4%204.%20Nxd4%20Nf6%205.%20Nc3%20a6%206.%20Be3%20e5%207.%20Nb3%20Be6%208.%20f3%20Be7%209.%20Qd2%20O-O%2010.%20O-O-O%20Nbd7%2011.%20g4%20b5%2012.%20g5%20b4%2013.%20Ne2%20Ne8%2014.%20f4%20a5%2015.%20f5&move=3&turn=white&orientation=white";
-    const example4 = "https://flashchess.org/#/flashcard?title=Caro-Kann%20Defence:%20Classical%20Variation&description=The%20vast%20majority%20of%20times,%20black%20plays%20the%20solid%203...dxe4,%20one%20of%20the%20most%20well-studied%20of%20the%20Caro-Kann%20lines.%20Black%20has%20alternatives%20to%20avoid%20the%20weight%20of%20theory,%20although%203...e6,%20blocking%20the%20bishop,%20and%20effectively%20forming%20a%20French,%20with%20one%20tempo%20less,%20seems%20a%20dubious%20line.&pgn=1.%20e4%20c6%202.%20d4%20d5%203.%20Nc3%20dxe4%204.%20Nxe4%20Bf5%205.%20Ng3%20Bg6%206.%20h4%20h6%207.%20Nf3%20Nd7%208.%20h5%20Bh7%209.%20Bd3%20Bxd3%2010.%20Qxd3%20e6%2011.%20Bd2%20Ngf6%2012.%20O-O-O%20Be7%2013.%20Kb1%20O-O&move=1&turn=black&orientation=black";
-    const example5 = "https://flashchess.org/#/flashcard/?title=French%20Defence:%20Advance%20Variation,%20Euwe%20Variation&description=White%20gains%20some%20space%20advantage%20immediately,%20and%20prevents%20Black%20from%20developing%20their%20king%27s%20knight%20to%20its%20most%20natural%20square%20f6.%20Black%27s%20plan%20is%20straightforward:%20They%20want%20to%20eliminate%20White%27s%20pawns%20on%20d4/e5%20-%20and%20after%20doing%20so,%20Black%20will%20find%20it%20easier%20to%20develop%20the%20pieces%20of%20their%20kingside%20to%20good%20squares.&pgn=1.%20e4%20e6%202.%20d4%20d5%203.%20e5%20c5%204.%20c3%20Nc6%205.%20Nf3%20Bd7%206.%20Be2%20Nge7%207.%20Na3%20cxd4%208.%20cxd4%20Nf5%209.%20Nc2%20Qb6%2010.%20O-O&move=2&turn=black&orientation=black";
+    const example1 = "https://flashchess.org/#/flashcard/?title=C02%20French%20Defense:%20Advance%20Variation,%20Main%20Line%20(6.%20a3)%20&description=By%20playing%206.a3%20White%20eliminates%20any%20possibility%20of%20a%20b4%20intrusion.%20Also%20White%20is%20preparing%20to%20assert%20himself%20on%20the%20queenside%20via%20b2-b4.Furthermore,%20b2-b4%20frees%20the%20c1%20bishop%20from%20minding%20the%20b2%20pawn.&pgn=1.%20e4%20e6%202.%20d4%20d5%203.%20e5%20c5%204.%20c3%20Nc6%205.%20Nf3%20Qb6%206.%20a3%20Nge7%207.%20b4%20cxd4%208.%20cxd4%20Nf5%209.%20Bb2%20Be7%2010.%20Bd3%20Bd7%2011.%20Bxf5%20exf5%2012.%20Nc3%20Be6%2013.%20O-O&move=3&turn=white&orientation=white";
+    const example2 = "https://flashchess.org/#/flashcard/?title=C02%20French%20Defense:%20Advance%20Variation,%20Euwe%20Variation&description=With%205...Bd7,%20Black%20enters%20the%20Euwe%20Variation.%20This%20move%20is%20less%20committal%20than%20the%20main%20line%205...Qb6,%20as%20it%20allows%20Black%20to%20reserve%20the%20option%20of%20where%20to%20place%20their%20Queen.&pgn=1.%20e4%20e6%202.%20d4%20d5%203.%20e5%20c5%204.%20c3%20Nc6%205.%20Nf3%20Bd7%206.%20Be2%20Nge7%207.%20Na3%20cxd4%208.%20cxd4%20Nf5%209.%20Nc2%20Qb6%2010.%20O-O%20Rc8&move=2&turn=black&orientation=black";
+    const example3 = "https://flashchess.org/#/flashcard/?title=B90%20Sicilian%20Defense:%20Najdorf%20Variation,%20English%20Attack&description=The%20English%20Attack%20is%20a%20brute-force%20all-purpose%20attacking%20setup%20characterized%20by%20White's%20moves%20Be3,%20Qd2,%20f3,%20g4,%20h4,%20O-O-O,%20Rg1,%20and%20crack%20open%20the%20kingside.&pgn=1.%20e4%20c5%202.%20Nf3%20d6%203.%20d4%20cxd4%204.%20Nxd4%20Nf6%205.%20Nc3%20a6%206.%20Be3%20e5%207.%20Nb3%20%207...%20Be6%208.%20f3%20Be7%209.%20Qd2%20O-O%2010.%20O-O-O%20Nbd7%2011.%20g4%20b5%2012.%20g5&move=3&turn=white&orientation=white";
+    const example4 = "https://flashchess.org/#/flashcard/?title=B35%20Sicilian%20Defense:%20Accelerated%20Dragon,%20Modern%20Bc4%20Variation&description=As%20most%20of%20the%20Sicilian%20variations,%20the%20Accelerated%20Dragon%20leads%20to%20asymmetrical%20and%20to%20some%20extent%20unbalanced%20positions.%20This%20gives%20chances%20to%20play%20for%20a%20win%20with%20Black.%20Especially%20good%20for%20dynamic%20and%20active%20players.&pgn=1.%20e4%20c5%202.%20Nf3%20Nc6%203.%20d4%20cxd4%204.%20Nxd4%20g6%205.%20Nc3%20Bg7%206.%20Be3%20Nf6%207.%20Bc4%20O-O%208.%20Bb3%20d6%209.%20f3%20Bd7%2010.%20Qd2%20Nxd4&move=3&turn=black&orientation=black";
+    const example5 = "https://flashchess.org/#/flashcard/?title=Scicilian%20Fisher%20trap&description=10.%20Bxf7+&pgn=1.%20e4%20c5%202.%20Nf3%20Nc6%203.%20d4%20cxd4%204.%20Nxd4%20g6%205.%20Nc3%20Bg7%206.%20Be3%20Nf6%207.%20Bc4%20O-O%208.%20Bb3%20Na5%209.%20e5%20Ne8%2010.%20Bxf7+%20Rxf7%2011.%20Ne6&move=3&turn=white&orientation=white";
+    const example6 = "https://flashchess.org/#/flashcard/?title=French%20Defence:%20Trap%20Haubrich-Orlov%201991&description=Ng3&pgn=1.%20e4%20e6%202.%20d3%20d5%203.%20Nd2%20Nf6%204.%20g3%20dxe4%205.%20dxe4%20Bc5%206.%20Ngf3%20Ng4%207.%20Qe2%20Bxf2+%208.%20Kd1%20Ne3+%209.%20Qxe3%20Bxe3&move=2&turn=black&orientation=black";
 
     useEffect(() => {
         appInsights.trackEvent({
@@ -50,23 +51,47 @@ export default function Homepage() {
                             Upon replaying, FlashChess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! FlashChess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.
                         </div>
                     </div>
-                    <div className="examples-table-box">
-                        <div className="table-title-try">Give it a try!</div>
-                        <div className="table-title-pre-created">Here is a list of flashcards which we pre-created:</div>
 
-                        <table className="examples-table">
-                            <tbody>
-                                <tr><td><a className="table-line top-border" href={example1}>Queen's Gambit Accepted (Classic Nf3)</a></td></tr>
-                                <tr><td><a className="table-line" href={example2}>Queen's Gambit Declined Exchange Variation (5. Bg5 c6)</a></td></tr>
-                                <tr><td><a className="table-line" href={example3}>Najdorf Sicilian, English Attack (12 g5)</a></td></tr>
-                                <tr><td><a className="table-line" href={example4}>Caro-Kann Defence: Classical Variation</a></td></tr>
-                                <tr><td><a className="table-line" href={example5}>French Defence: Advance Variation, Euwe Variation</a></td></tr>
-                            </tbody>
-                        </table>
+                    <div className="examples-table-box">
+                        <div className="examples-table-second-box">
+                            <div className="table-title-try">Give it a try!</div>
+                            <div className="table-title-pre-created">Here is a list of flashcards which we pre-created:</div>
+
+                            <table className="examples-table">
+                                <tbody>
+                                    <tr>
+                                        <td><a className="table-line" href={example1}>C02 French Defense: Advance Variation, Main Line (6. a3)</a> </td>
+                                        <td>&#11036;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a className="table-line" href={example2}>C02 French Defense: Advance Variation, Euwe Variation</a></td>
+                                        <td>&#11035;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a className="table-line" href={example3}>B90 Sicilian Defense: Najdorf Variation, English Attack</a></td>
+                                        <td>&#11036;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a className="table-line" href={example4}>B35 Sicilian Defense: Accelerated Dragon, Modern Bc4 Variation</a></td>
+                                        <td>&#11035;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a className="table-line" href={example5}>Scicilian Fisher trap</a></td>
+                                        <td>&#11036;</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a className="table-line" href={example6}>French Defence: Trap Haubrich-Orlov 1991</a></td>
+                                        <td>&#11035;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="examples-table-box-button-container">
+                            <button className="create-button" onClick={handleClick}>Create your own opening flashcard</button>
+                        </div>
                     </div>
                 </div>
-
-                <button className="create-button" onClick={handleClick}>Create your own opening flashcard</button>
             </div>
         </div>
     );

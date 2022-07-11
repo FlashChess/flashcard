@@ -293,6 +293,10 @@ export default function Flashcard(title: string, description: string, plannedPGN
                             <button onClick={resetOfChess}>Do again</button>
                             <button onClick={handleHint}>Hint</button>
                         </div>
+
+                        <div className="gj">
+                            {ind.current >= pgnArray.current.length && goodJob()}
+                        </div>
                     </div>
 
                     <div className="pgn-box">
@@ -301,13 +305,11 @@ export default function Flashcard(title: string, description: string, plannedPGN
                 </div>
 
                 <div className="description-box">
-                    <div className="descriptionTitle">Description</div>
-                    <div>{description}</div>
+                    <div className="description-part-of-flashcard">
+                        <div className="descriptionTitle">Description</div>
+                        <div>{description}</div>
+                    </div>
                 </div>
-            </div>
-
-            <div className="gj">
-                {ind.current >= pgnArray.current.length && goodJob()}
             </div>
         </div>
     );
