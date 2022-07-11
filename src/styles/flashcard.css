@@ -116,7 +116,7 @@
 .flashcard .gj {
     margin: auto;
     text-align: center;
-    color: #ce9313;
+    color: var(--green1);
     font-size: 30px;
     text-shadow: 0 1px 0 rgb(53, 53, 53);
 }
