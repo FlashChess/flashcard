@@ -37,65 +37,63 @@ export default function CreateFlashcard() {
     }, [move])
 
     return (
-        <div>
-            <div className="newFlashcard-form-box">
-                <div className="newFlashcard-form">
-                    <div className="newFlashcard-text param">Create your own opening flashcard:</div>
+        <div className="newFlashcard-container">
+            <div className="newFlashcard-form">
+                <div className="newFlashcard-text param">Create your own opening flashcard:</div>
 
-                    <div>
-                        <div>Title</div>
-                        <textarea className="title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
+                <div>
+                    <div>Title</div>
+                    <textarea className="title-textarea" value={title} onChange={(e) => setTitle(e.target.value)} />
+                </div>
+
+                <div>
+                    <div>Descritption</div>
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+                </div>
+
+                <div>
+                    <div className="pgn-text">
+                        <div>PGN (</div>
+                        <div className="link">you can create it on <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
+                        <div>)</div>
                     </div>
+                    <textarea className="pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
+                </div>
 
-                    <div>
-                        <div>Descritption</div>
-                        <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-                    </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Start move</td>
+                            <td><input className="move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></td>
+                        </tr>
+                        <tr>
+                            <td>Turn</td>
+                            <td>
+                                <select value={turn} onChange={(e) => setTurn(e.target.value)}>
+                                    <option value="white">white</option>
+                                    <option value="black">black</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Orientation</td>
+                            <td>
+                                <select value={orientation} onChange={(e) => setOrientation(e.target.value)}>
+                                    <option value="white">white</option>
+                                    <option value="black">black</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <div>
-                        <div className="pgn-text">
-                            <div>PGN (</div>
-                            <div className="link">you can create it on <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
-                            <div>)</div>
-                        </div>
-                        <textarea className="pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
-                    </div>
+                <div className="text">
+                    <div className="text-1st-div">* Currently we support only opening flashcards through links. Once created (you will be navigated to a new page), copy its link (URL) and save it somewhere (e.g., OneNote). </div>
+                    <div>** We're working on account system and maintaining your opening library online. Stay tuned!</div>
+                </div>
 
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Start move</td>
-                                <td><input className="move-input" type="number" value={move} onChange={(e) => setMove(parseInt(e.target.value))} /></td>
-                            </tr>
-                            <tr>
-                                <td>Turn</td>
-                                <td>
-                                    <select value={turn} onChange={(e) => setTurn(e.target.value)}>
-                                        <option value="white">white</option>
-                                        <option value="black">black</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Orientation</td>
-                                <td>
-                                    <select value={orientation} onChange={(e) => setOrientation(e.target.value)}>
-                                        <option value="white">white</option>
-                                        <option value="black">black</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div className="text">
-                        <div className="text-1st-div">* Currently we support only opening flashcards through links. Once created (you will be navigated to a new page), copy its link (URL) and save it somewhere (e.g., OneNote). </div>
-                        <div>** We're working on account system and maintaining your opening library online. Stay tuned!</div>
-                    </div>
-
-                    <div className="create-button-box">
-                        <button className="create-button" onClick={Create}>Create</button>
-                    </div>
+                <div className="create-button-box">
+                    <button className="create-button" onClick={Create}>Create</button>
                 </div>
             </div>
         </div>
