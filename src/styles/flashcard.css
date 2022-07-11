@@ -34,10 +34,16 @@
 }
 
 .middle-line .description-box {
-    min-width: 330px;
-    width: 330px;
-    margin-right: 20px;
+    min-width: 350px;
+    width: 350px;
+    padding-right: 20px;
     margin-bottom: 10px;
+}
+
+.middle-line .description-box .description-part-of-flashcard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .middle-line .board-buttons-with-pgn {
