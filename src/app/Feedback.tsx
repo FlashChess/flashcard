@@ -35,7 +35,7 @@ export default function Feedback() { // Your email:
             }
         })
         alert("Thank you for your feedback!");
-        window.location.href = "http://localhost:3000";
+        window.location.href = "https://flashchess.org";
     }
 
     return (
