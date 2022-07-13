@@ -67,7 +67,8 @@ export default function Feedback() { // Your email:
                 </div>
 
                 <div className="github-box">     {/* link to github */}
-                    <div className="github-FlashChess">You also can open a PR on our GitHub repository <a className="github-FlashChess" href="https://github.com/FlashChess/flashcard">FlashChes</a></div>
+                    <div className="github-FlashChess">Open an issue on GitHub!</div>
+                    <div>Our GitHub repository: <a className="color-pointer" href="https://github.com/FlashChess/flashcard">https://github.com/FlashChess/flashcard</a></div>
                 </div>
             </div>
         </div>

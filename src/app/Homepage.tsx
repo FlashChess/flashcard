@@ -27,29 +27,24 @@ export default function Homepage() {
             <div className="homepage-content">
                 <div className="descriptionAndExamples-box">
                     <div className="flashchess-description">
-                        <div className="paragraph">
-                            To play chess well it is important to be familiar with numerous chess openings (because your opponents will be!). What even more important is not to confuse similar lines and always play the right moves.
-                        </div>
+                        <article>
+                            <h1>Flashchess</h1>
+                            <p>This is a platform designed solely for memorizing chess openings. The approach is inspired by <a href={flashcardWikipedia}>flashcard</a> concept:</p>
+                            <p className="italic">&gt; Wiki: Flashcards are an application of the testing effect − the finding that <b>long-term memory</b> is increased when some of the learning period is devoted to retrieving the information through testing with proper feedback. Study habits affect the rate at which a flashcard-user learns, and proper spacing of <b>flashcards has been proven to accelerate learning</b>.</p>
+                        </article>
 
-                        <div className="paragraph">
-                            We observed that studying or playing (even a lot!) a chess opening doesn't necessarily lead to its memorization. It requires many iterations and has a tendency of slipping away as the time passes by.
-                        </div>
+                        <article className="article-margin">
+                            <h1>Why it's great:</h1>
+                            <p>To play chess well it is important to be familiar with numerous chess openings (because your opponents will be!). What even more important is not to confuse similar lines and always play the right moves.</p>
+                            <p>We observed that studying or playing (even a lot!) a chess opening doesn't necessarily lead to its memorization. It requires many iterations and has a tendency of slipping away as the time passes by.</p>
+                            <p>And this where our opening flashcards can help you! Because it take less then a minute to brush up some of them.</p>
+                        </article>
 
-                        <div className="paragraph">
-                            Flash Chess is a platform designed solely for memorizing chess openings. The approach is inspired by <a href={flashcardWikipedia}>flashcard</a> concept:
-                        </div>
-
-                        <div className="paragraph wiki-article">
-                            &gt; Wiki: Flashcards are an application of the testing effect − the finding that <b>long-term memory</b> is increased when some of the learning period is devoted to retrieving the information through testing with proper feedback. Study habits affect the rate at which a flashcard-user learns, and proper spacing of flashcards has been proven to accelerate learning.
-                        </div>
-
-                        <div className="paragraph">
-                            When you decide to add a new opening or variation (<div className="questions">why did my opponent get so better position last game? how should have I played instead?</div>) to your repertoire, you can create a flashcard and add it to your library.
-                        </div>
-
-                        <div className="paragraph">
-                            Upon replaying, FlashChess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! FlashChess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.
-                        </div>
+                        <article>
+                            <h1>Easy to use: </h1>
+                            <p>When you decide to add a new opening or variation (<span className="italic">why did my opponent get so better position last game? how should have I played instead?</span>) to your repertoire, you can create a flashcard and add it to your library.</p>
+                            <p>Upon replaying, flashchess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! FlashChess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.</p>
+                        </article>
                     </div>
 
                     <div className="examples-table-box">
