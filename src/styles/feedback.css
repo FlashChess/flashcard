@@ -151,3 +151,7 @@
     margin-bottom: 40px;
     text-align: center;
 }
+
+.feedback-form .github-box .color-pointer {
+    color: var(--pointer-color);
+}
