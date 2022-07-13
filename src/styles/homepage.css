@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-.descriptionAndExamples-box {
+.homepage-content .descriptionAndExamples-box {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -13,37 +13,64 @@
     padding-top: 15px;
 }
 
-.flashchess-description {
+.descriptionAndExamples-box .flashchess-description {
     min-width: 500px;
     max-width: 800px;
     width: 60vw;
 
-    padding: 0px 10px;
+    padding: 20px;
     border-radius: 20px;
     background-color: white;
-
-    /* border: 2px solid var(--pointer-color); */
 
     margin-bottom: 15px;
 }
 
-.paragraph {
-    padding: 9px 0px;
+.flashchess-description article {
+    font-size: 1.05em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flashchess-description .article-margin {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.flashchess-description h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.6em;
+}
+
+.flashchess-description p {
+    margin-block-start: 0.35em;
+    margin-block-end: 0.35em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.flashchess-description .paragraph {
+    padding: 5px 0px;
 
     font-size: 1.05em;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.wiki-article {
+.flashchess-description .flashchess-word {
+    font-size: 1.5em;
+    /* font-family: Comic Sans MS, Comic Sans, cursive; */
+    font-weight: bold;
+    /* font-style: italic; */
+}
+
+.flashchess-description .italic {
     font-style: italic;
 }
 
-.questions {
-    display:inline;
+.flashchess-description .questions {
     font-style: oblique;
 }
 
-.examples-table-box {
+.descriptionAndExamples-box .examples-table-box {
     /* min-width: max(500px, 12cm); */ /* just an idea */
     min-width: 500px;
     max-width: 550px;
@@ -57,7 +84,7 @@
 }
 
 .examples-table-box .examples-table-second-box {
-    padding: 20px 20px;
+    padding: 20px;
     border-radius: 20px;
     background-color: white;
 
@@ -66,32 +93,32 @@
     font-weight: 500;
 }
 
-.table-title-try{
+.examples-table-second-box .table-title-try{
     font-size: 1.6em;
     margin-bottom: 10px;
     --temp: 40;
     color:rgb(var(--temp), var(--temp), var(--temp));
 }
 
-.table-title-pre-created {
+.examples-table-second-box .table-title-pre-created {
     font-size: 1.23em;
     margin-bottom: 10px;
     --temp: 40;
     color:rgb(var(--temp), var(--temp), var(--temp));
 }
 
-.examples-table-box table {
+.examples-table-second-box table {
     border: 1px solid rgb(220, 220, 220);
     background-color: rgb(220, 220, 220);
 }
 
-.examples-table-box td {
+.examples-table-second-box td {
     border: 1px solid rgb(220, 220, 220);
     background-color: white;
     padding: 10px;
 }
 
-.table-line {
+.examples-table-second-box .table-line {
     color: var(--pointer-color);
 }
 
