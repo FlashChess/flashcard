@@ -137,6 +137,8 @@
 }
 
 .feedback-form .github-box {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
@@ -145,6 +147,7 @@
 }
 
 .feedback-form .github-box .github-FlashChess { 
-    font-size: 13px;
-    color: rgb(100, 100, 100);
+    font-size: 30px;
+    margin-bottom: 40px;
+    text-align: center;
 }

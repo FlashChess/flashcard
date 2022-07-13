@@ -66,10 +66,6 @@
     font-style: italic;
 }
 
-.flashchess-description .questions {
-    font-style: oblique;
-}
-
 .descriptionAndExamples-box .examples-table-box {
     /* min-width: max(500px, 12cm); */ /* just an idea */
     min-width: 500px;
