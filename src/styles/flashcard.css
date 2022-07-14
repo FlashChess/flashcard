@@ -12,7 +12,6 @@
 .flashcard .title {
     color: #4d4d4d;
     font-size: 35px;
-    /* font-family: Segoe UI; */
     white-space: nowrap;
     text-shadow: 0 1px 0 #fff;
 
@@ -87,13 +86,12 @@
 }
 
 .buttonBox button {
-    background: linear-gradient(to bottom, white 0%, #cfcfcf 100%);
+    background: linear-gradient(to bottom, white 0%, rgb(207, 207, 207) 100%);
     height: 35px;
     width: 100px;
 
     color: rgb(120, 120, 120);
     font-size: 20px;
-    font-family: 'Roboto', Sans-Serif;
     font-weight: 600;
     white-space: nowrap;
 
@@ -101,12 +99,10 @@
     border-radius: 5px;
 
     cursor: pointer;
-
-    transition: all 150ms;
 }
 
 .buttonBox button:hover {
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 23%);
+    background: rgb(250, 250, 250);
 }
 
 .buttonBox button:active {
@@ -118,5 +114,4 @@
     text-align: center;
     color: var(--green1);
     font-size: 30px;
-    text-shadow: 0 1px 0 rgb(53, 53, 53);
 }

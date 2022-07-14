@@ -1,5 +1,5 @@
 .feedback-form-box {
-    padding-top: 40px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -56,7 +56,7 @@
     cursor: pointer;
 
     transition: 
-        background-color 0.1s, 
+        background-color 0.05s, 
         border 0.1s;
 }
 
@@ -150,8 +150,4 @@
     font-size: 30px;
     margin-bottom: 40px;
     text-align: center;
-}
-
-.feedback-form .github-box .color-pointer {
-    color: var(--pointer-color);
 }

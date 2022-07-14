@@ -28,22 +28,18 @@ export default function Homepage() {
                 <div className="descriptionAndExamples-box">
                     <div className="flashchess-description">
                         <article>
-                            <h1>Flashchess</h1>
-                            <p>This is a platform designed solely for memorizing chess openings. The approach is inspired by <a href={flashcardWikipedia}>flashcard</a> concept:</p>
-                            <p className="italic">&gt; Wiki: Flashcards are an application of the testing effect − the finding that <b>long-term memory</b> is increased when some of the learning period is devoted to retrieving the information through testing with proper feedback. Study habits affect the rate at which a flashcard-user learns, and proper spacing of <b>flashcards has been proven to accelerate learning</b>.</p>
+                            <h1>About flashchess.org</h1>
+                            <p>flashchess.org - is a platform designed solely for memorizing chess openings. The approach is inspired by <a href={flashcardWikipedia}>flashcard</a> concept:</p>
+                            <p className="italic">&gt; Wikipedia: Flashcards are an application of the testing effect − the finding that <span className="font-weight-500">long-term memory</span> is increased when some of the learning period is devoted to retrieving the information through testing with proper feedback. Study habits affect the rate at which a flashcard-user learns, and proper spacing of <span className="font-weight-500">flashcards has been proven to accelerate learning</span>.</p>
                         </article>
 
                         <article className="article-margin">
                             <h1>Why it's great:</h1>
-                            <p>To play chess well it is important to be familiar with numerous chess openings (because your opponents will be!). What even more important is not to confuse similar lines and always play the right moves.</p>
+                            <p>To play chess well it's important to be familiar with numerous chess openings (because your opponents will be!). What even more important is not to confuse similar lines and always play the right moves.</p>
                             <p>We observed that studying or playing (even a lot!) a chess opening doesn't necessarily lead to its memorization. It requires many iterations and has a tendency of slipping away as the time passes by.</p>
-                            <p>And this where our opening flashcards can help you! Because it take less then a minute to brush up some of them.</p>
-                        </article>
-
-                        <article>
-                            <h1>Easy to use: </h1>
+                            <p className="font-weight-500">This is where our opening flashcards perform best! Because it takes less than a minute to play a sequence of moves, this allows you to repeat 10 different openings in any of your free 10-minute breaks.</p>
                             <p>When you decide to add a new opening or variation (<span className="italic">why did my opponent get so better position last game? how should have I played instead?</span>) to your repertoire, you can create a flashcard and add it to your library.</p>
-                            <p>Upon replaying, flashchess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! FlashChess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.</p>
+                            <p className="font-weight-500">Upon replaying, flashchess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! Flashchess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.</p>
                         </article>
                     </div>
 
@@ -55,27 +51,27 @@ export default function Homepage() {
                             <table className="examples-table">
                                 <tbody>
                                     <tr>
-                                        <td><a className="table-line" href={example1}>C02 French Defense: Advance Variation, Main Line (6. a3)</a> </td>
+                                        <td><a href={example1}>C02 French Defense: Advance Variation, Main Line (6. a3)</a> </td>
                                         <td>&#11036;</td>
                                     </tr>
                                     <tr>
-                                        <td><a className="table-line" href={example2}>C02 French Defense: Advance Variation, Euwe Variation</a></td>
+                                        <td><a href={example2}>C02 French Defense: Advance Variation, Euwe Variation</a></td>
                                         <td>&#11035;</td>
                                     </tr>
                                     <tr>
-                                        <td><a className="table-line" href={example3}>B90 Sicilian Defense: Najdorf Variation, English Attack</a></td>
+                                        <td><a href={example3}>B90 Sicilian Defense: Najdorf Variation, English Attack</a></td>
                                         <td>&#11036;</td>
                                     </tr>
                                     <tr>
-                                        <td><a className="table-line" href={example4}>B35 Sicilian Defense: Accelerated Dragon, Modern Bc4 Variation</a></td>
+                                        <td><a href={example4}>B35 Sicilian Defense: Accelerated Dragon, Modern Bc4 Variation</a></td>
                                         <td>&#11035;</td>
                                     </tr>
                                     <tr>
-                                        <td><a className="table-line" href={example5}>Scicilian Fisher trap</a></td>
+                                        <td><a href={example5}>Scicilian Fisher trap</a></td>
                                         <td>&#11036;</td>
                                     </tr>
                                     <tr>
-                                        <td><a className="table-line" href={example6}>French Defence: Trap Haubrich-Orlov 1991</a></td>
+                                        <td><a href={example6}>French Defence: Trap Haubrich-Orlov 1991</a></td>
                                         <td>&#11035;</td>
                                     </tr>
                                 </tbody>
