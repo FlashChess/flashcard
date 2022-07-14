@@ -306,7 +306,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
                 <div className="description-box">
                     <div className="description-part-of-flashcard">
-                        <div className="descriptionTitle">Description</div>
+                        <div className="descriptionTitle">Notes</div>
                         <div>{description}</div>
                     </div>
                 </div>
