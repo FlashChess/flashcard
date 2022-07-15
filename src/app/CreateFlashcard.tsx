@@ -53,9 +53,7 @@ export default function CreateFlashcard() {
 
                 <div>
                     <div className="pgn-text">
-                        <div>PGN (</div>
-                        <div className="link">you can create it on <a href="https://lichess.org/analysis" target="_blank">lichess</a></div>
-                        <div>)</div>
+                        <div>PGN (<span className="small-font">you can create it on <a className="lichess-link" href="https://lichess.org/analysis" target="_blank">lichess</a>, play the sequence of moves and coppy PGN under the board</span>)</div>
                     </div>
                     <textarea className="pgn-textarea" value={pgn} onChange={(e) => setPGN(e.target.value)} />
                 </div>
