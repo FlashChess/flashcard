@@ -47,7 +47,7 @@ export default function CreateFlashcard() {
                 </div>
 
                 <div>
-                    <div>Descritption</div>
+                    <div>Notes</div>
                     <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
 
