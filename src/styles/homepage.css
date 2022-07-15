@@ -30,7 +30,7 @@
 }
 
 .flashchess-description .article-margin {
-    margin-top: 1.2em;
+    margin: 1em 0;
 }
 
 .flashchess-description h1 {
@@ -41,8 +41,8 @@
 }
 
 .flashchess-description p {
-    margin-block-start: 0.35em;
-    margin-block-end: 0.35em;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }

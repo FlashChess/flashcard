@@ -33,12 +33,16 @@ export default function Homepage() {
                     </article>
 
                     <article className="article-margin">
-                        <h1>Why it's great:</h1>
+                        <h1>Why it's important:</h1>
                         <p>To play chess well it's important to be familiar with numerous chess openings (because your opponents will be!). What even more important is not to confuse similar lines and always play the right moves.</p>
                         <p>We observed that studying or playing (even a lot!) a chess opening doesn't necessarily lead to its memorization. It requires many iterations and has a tendency of slipping away as the time passes by.</p>
-                        <p className="font-weight-500">This is where our opening flashcards perform best! Because it takes less than a minute to play a sequence of moves, this allows you to repeat 10 different openings in any of your free 10-minute breaks.</p>
+                        <p>This is where our opening flashcards perform best! Because it takes less than a minute to play a sequence of moves, this allows you to repeat 10 different openings in any of your free 10-minute breaks.</p>
+                    </article>
+
+                    <article>
+                        <h1>How to use:</h1>
                         <p>When you decide to add a new opening or variation (<span className="italic">why did my opponent get so better position last game? how should have I played instead?</span>) to your repertoire, you can create a flashcard and add it to your library.</p>
-                        <p className="font-weight-500">Upon replaying, flashchess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! Flashchess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.</p>
+                        <p>Upon replaying, flashchess.org will guide you through the sequence of moves giving immediate feedback and of course, congratulating when a flashcard played without errors! Flashchess.org leverages liches.org chess board to create a familiar environment and not to distract you from memorizing chess openings.</p>
                     </article>
                 </div>
 
