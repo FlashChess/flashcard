@@ -29,9 +29,8 @@
 }
 
 .middle-line .description-box {
-    min-width: 350px;
-    width: 350px;
-    padding-right: 20px;
+    min-width: 330px;
+    width: 330px;
     margin-bottom: 10px;
 }
 
@@ -47,6 +46,11 @@
     flex-wrap: wrap;
 }
 
+.board-with-buttons {
+    margin-left: 20px;
+    margin-right: 16px;  /* For some reason board have it's own padding-right: ~4px; */
+}
+
 .middle-line .board { 
     --edge: min(calc(100vh - 300px), calc(100vw - 720px));
     width: var(--edge);
@@ -57,8 +61,8 @@
 }
 
 .middle-line .pgn-box { 
+    min-width: 330px;
     width: 330px;
-    margin-left: 20px;
 }
 
 .description-box .descriptionTitle {
