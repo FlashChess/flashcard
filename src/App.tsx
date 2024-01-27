@@ -25,7 +25,7 @@ export default function App() {
     return (
         <div className="app">
             <div className="nav-bar">
-                <div className="flashchess-org">flashchess.org</div>
+                <a className="flashchess-org" href="https://flashchess.org">flashchess.org</a>
                 <div className="buttons-box">
                     <button className="home-button" onClick={handleHome}>Home</button>
                     <button className="newFlashcard-button" onClick={handleNewFlashcard}>New Flashcard</button>

@@ -1,5 +1,3 @@
-import { Key } from "react";
-
 export default function toDests(chess: any) {
     const dests = new Map();
     chess.board().forEach((b: any) => {

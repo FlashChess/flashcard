@@ -272,8 +272,8 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
             <div className="middle-line">
                 <div className="board-buttons-with-pgn">
-                    <div className="board-with-buttons">
-                        <div className="board">
+                    <div>
+                        <div className="my_board">
                             <Chessground
                                 viewOnly={myViewOnly}
                                 fen={fen}
