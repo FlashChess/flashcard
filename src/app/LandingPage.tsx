@@ -116,12 +116,6 @@ export default function LandingPage() {
                 <div className="navigation-footer">
                     <div className="link">GitHub: <a href={github}>https://github.com/FlashChess/flashcard</a></div>
                 </div>
-                <div className="social">
-                    <img src="images/icon-facebook.svg" alt="" />
-                    <img src="images/icon-instagram.svg" alt="" />
-                    <img src="images/icon-twitter.svg" alt="" />
-                    <img src="images/icon-pinterest.svg" alt="" />
-                </div>
             </footer>
 
         </div>
