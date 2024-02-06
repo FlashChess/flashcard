@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 
+import LandingPage from "./app/LandingPage";
 import Homepage from './app/Homepage';
 import CreateFlashcard from "./app/CreateFlashcard";
 import PreFlashcard from './app/PreFlashcard';
@@ -36,7 +37,8 @@ export default function App() {
             <div className="content-container">
                 <HashRouter>
                     <Routes>
-                        <Route path="/" element={<Homepage />} />
+                        { /* <Route path="/" element={<Homepage />} /> */ }
+                        <Route path="/" element={<LandingPage />} />
                         <Route path="/create" element={<CreateFlashcard />} />
                         <Route path="/flashcard" element={<PreFlashcard />} />
                         <Route path="/feedback" element={<Feedback />} />

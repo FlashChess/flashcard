@@ -1,0 +1,18 @@
+.landingPage {
+    display: flex;
+    justify-content: center;
+}
+
+.banner {
+    background-image: url(./Pictures/flashcards.jpg);
+    width: 1000px;
+    height: 1000px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    gap: 110px;
+    flex-direction: column;
+    align-items: center;
+}
