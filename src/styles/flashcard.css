@@ -1,4 +1,8 @@
 /* Top Line */
+.flashcard {
+    padding-top: 20px;
+}
+
 .flashcard .top-line { 
     display: flex;
     flex-direction: column;
