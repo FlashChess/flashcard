@@ -1,18 +1,396 @@
-.landingPage {
-    display: flex;
-    justify-content: center;
+/* Getting rid of default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Banner */
 .banner {
-    background-image: url(./Pictures/flashcards.jpg);
-    width: 1000px;
-    height: 1000px;
+    background-image:  url(./Pictures/OIG2.jpg);
+    /*background-image: url(https://th.bing.com/th/id/R.057b31be70cc73b9d0c829205f90e02f?rik=PxrTE7PkNVZoRg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fCool-nature-backgrounds-hd-resolution-1920x1080.jpg&ehk=hQzPW7PZMRmNSlTgkm1V0lR4FopZ7yGKJtUMRedf8wM%3d&risl=&pid=ImgRaw&r=0); */
+    width: 100%;
+    height: 75vh;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-repeat: repeat;
+    background-position: center 20%;
 
+
+    padding: 35px 40px;
     display: flex;
     gap: 110px;
     flex-direction: column;
     align-items: center;
+}
+
+.banner1 {
+    background-image:  url(./Pictures/OIG2.jpg);
+    /*background-image: url(https://th.bing.com/th/id/R.057b31be70cc73b9d0c829205f90e02f?rik=PxrTE7PkNVZoRg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fCool-nature-backgrounds-hd-resolution-1920x1080.jpg&ehk=hQzPW7PZMRmNSlTgkm1V0lR4FopZ7yGKJtUMRedf8wM%3d&risl=&pid=ImgRaw&r=0); */
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center 10%;
+
+
+    padding: 35px 40px;
+    display: flex;
+    gap: 110px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner2 {
+    background-image:  url(./Pictures/mirroredOIG2.jpg);
+    /*background-image: url(https://th.bing.com/th/id/R.057b31be70cc73b9d0c829205f90e02f?rik=PxrTE7PkNVZoRg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f08%2fCool-nature-backgrounds-hd-resolution-1920x1080.jpg&ehk=hQzPW7PZMRmNSlTgkm1V0lR4FopZ7yGKJtUMRedf8wM%3d&risl=&pid=ImgRaw&r=0); */
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center 10%;
+
+
+    padding: 35px 40px;
+    display: flex;
+    gap: 110px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bannerGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.heading {
+    font-family: 'Fraunces', serif;
+    font-size: 54px;
+    color: white;
+    text-shadow: 2px 2px blue;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* I think this is the best way to work with the images */
+/* The only question is height */
+.flashcards {
+    background:  url(./Pictures/flashcards.jpg), no-repeat;
+    background-size: cover;
+    background-position: center ;
+}
+
+.cardBlock {
+    height: 46vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tryBlock {
+    height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+    align-items: center;
+}
+
+.text-block {
+    max-width: 450px;
+    min-height: 425px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.text-block .italic {
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.italic .bold {
+    font-size: 16px;
+    font-weight: 900;
+    color: rgb(61, 61, 61);
+}
+
+.brand {
+    /* grid coordinates */
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.text h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    color: hsl(212, 27%, 19%);
+}
+
+.text p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: hsl(232, 10%, 55%);
+    line-height: 150%;
+}
+
+.learn-more {
+    width: fit-content;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    color: hsl(212, 27%, 19%);
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.learn-more:hover {
+    text-shadow: 1px 1px rgb(199, 195, 195);
+}
+
+.pressed {
+    border-bottom: 3px dashed #35a74d;  
+}
+
+.button {
+    height: 29px;
+}
+
+.highlighted {
+    display: block;
+    position: relative;
+    top: -10px;
+    height: 10px;
+    z-index: -1;
+    border-radius: 10px;
+    width: 135px;
+    left: -2.5%;
+    bottom: -3px;
+}
+
+
+.images {
+    display: flex;
+    width: 100%;                            /* 100% of the parent works better then 100vw */
+}
+
+.images img {
+    width: 100%;
+    display: block;
+}
+
+.examples-table-box {
+    /* min-width: max(500px, 12cm); */ /* just an idea */
+    min-width: 500px;
+    max-width: 550px;
+    width: 45vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.examples-table-box .examples-table-second-box {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+
+    font-size: 1.05em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+.examples-table-second-box .table-title-try{
+    font-size: 1.6em;
+    font-weight: 400;
+    /* text-shadow: 0 0 1px black; */
+    margin-bottom: 10px;
+    --temp: 40;
+    color:rgb(var(--temp), var(--temp), var(--temp));
+}
+
+.examples-table-second-box .table-title-pre-created {
+    font-size: 1.4em;
+    font-weight: 400;
+    /* text-shadow: 0 0 1px black; */
+    margin-bottom: 10px;
+    --temp: 40;
+    color:rgb(var(--temp), var(--temp), var(--temp));
+}
+
+.examples-table-second-box table {
+    border: 1px solid rgb(220, 220, 220);
+    background-color: rgb(220, 220, 220);
+}
+
+.examples-table-second-box td {
+    border: 1px solid rgb(220, 220, 220);
+    background-color: white;
+    padding: 10px;
+}
+
+.examples-table-box .examples-table-box-button-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Create your own opening flashcard Button */
+.create-button {
+    background-color: white;
+    height: 50px;
+    width: 440px;
+
+    color: var(--pointer-color);
+    font-size: 25px;
+    white-space: nowrap;
+
+    border-color: var(--pointer-color);
+    border-radius: 5px;
+    border-style: solid;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s,
+        color 0.15s;
+}
+
+.create-button:hover {
+    background-color: var(--pointer-color);
+    color: white;
+}
+
+.create-button:active {
+    opacity: 0.8;
+}
+
+.footer {
+    width: 100%;
+    height: 50vh;
+    background-color: #90d4c5;
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    color: hsl(167, 40%, 24%) !important;
+}
+
+.navigation-footer {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    font-family: 'Barlow', sans-serif;
+    font-size: 18px;
+    color: hsl(167, 40%, 24%);
+}
+
+@media (max-width: 1300px) {
+    .heading {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .banner {
+        gap: 90px;
+        padding: 35px 24px;
+    }
+
+    .heading {
+        font-size: 32px;
+    }
+
+    .cards{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardBlock{
+        height: 55vw;
+    }
+
+    .text-block{
+        align-items: center;
+        text-align: center;
+    }
+
+    .text h1{
+        font-size: 36px;
+    }
+
+    .text p{
+        font-size: 16px;
+    }
+
+    .learn-more{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 900px){
+    .heading {
+        font-size: 28px;
+    }
+
+}
+
+@media (max-width: 750px) {
+    .cardBlock{
+        height: fit-content;
+    }
+}
+
+@media (max-width: 555px){
+    .heading {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 490px){
+    .heading {
+        font-size: 20px;
+    }
+
+    .text-block{
+        padding: 0px 20px;
+    }
+
+    .text h1{
+        font-size: 28px;
+    }
+
+    .text p{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 400px){
+    .font h1{
+        font-size: 20px;
+    }
+
+    .font p{
+        font-size: 14px;
+    }
 }
