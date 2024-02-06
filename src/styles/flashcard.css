@@ -1,4 +1,8 @@
 /* Top Line */
+.flashcard {
+    padding-top: 20px;
+}
+
 .flashcard .top-line { 
     display: flex;
     flex-direction: column;
@@ -29,7 +33,6 @@
 }
 
 .middle-line .description-box {
-    min-width: 350px;
     width: 350px;
     padding-right: 20px;
     margin-bottom: 10px;
@@ -47,7 +50,7 @@
     flex-wrap: wrap;
 }
 
-.middle-line .board { 
+.middle-line .my_board { 
     --edge: min(calc(100vh - 300px), calc(100vw - 720px));
     width: var(--edge);
     height: var(--edge);

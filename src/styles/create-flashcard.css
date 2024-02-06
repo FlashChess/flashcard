@@ -1,6 +1,7 @@
 .newFlashcard-container {
     display: flex;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .newFlashcard-form { 

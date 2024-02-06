@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 
+import LandingPage from "./app/LandingPage";
 import Homepage from './app/Homepage';
 import CreateFlashcard from "./app/CreateFlashcard";
 import PreFlashcard from './app/PreFlashcard';
@@ -25,7 +26,7 @@ export default function App() {
     return (
         <div className="app">
             <div className="nav-bar">
-                <div className="flashchess-org">flashchess.org</div>
+                <a className="flashchess-org" href="https://flashchess.org">flashchess.org</a>
                 <div className="buttons-box">
                     <button className="home-button" onClick={handleHome}>Home</button>
                     <button className="newFlashcard-button" onClick={handleNewFlashcard}>New Flashcard</button>
@@ -36,7 +37,8 @@ export default function App() {
             <div className="content-container">
                 <HashRouter>
                     <Routes>
-                        <Route path="/" element={<Homepage />} />
+                        { /* <Route path="/" element={<Homepage />} /> */ }
+                        <Route path="/" element={<LandingPage />} />
                         <Route path="/create" element={<CreateFlashcard />} />
                         <Route path="/flashcard" element={<PreFlashcard />} />
                         <Route path="/feedback" element={<Feedback />} />

@@ -1,6 +1,7 @@
 .feedback-form-box {
     display: flex;
     justify-content: center;
+    padding-top: 20px;
 }
 
 .feedback-form {

@@ -3,9 +3,9 @@ import { Chessground as ChessgroundAPI } from "chessground";
 import { Config } from "chessground/config";
 import { Api } from "chessground/api";
 
-import 'chessground/assets/chessground.base.css';
+import '../../styles/base.css';
 import "../../styles/board.css";
-import "chessground/assets/chessground.cburnett.css";
+import "../../styles/cburnett.css";
 
 export default function Chessground(config: Config) {
     const [api, setApi] = useState<Api | null>(null);
