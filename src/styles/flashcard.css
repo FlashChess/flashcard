@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.flashcard .title {
+.flashcard .top-line .title {
     color: #4d4d4d;
     font-size: 35px;
     white-space: nowrap;
@@ -28,13 +28,13 @@
     flex-direction: row-reverse;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
     width: 100%;
     height: fit-content;
 }
 
 .middle-line .description-box {
     width: 350px;
-    padding-right: 20px;
     margin-bottom: 10px;
 }
 
@@ -48,6 +48,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .middle-line .my_board { 
@@ -57,11 +58,12 @@
     min-width: 480px;
     min-height: 480px;
     margin-bottom: 10px;
+    user-select: none;
 }
 
 .middle-line .pgn-box { 
     width: 330px;
-    margin-left: 20px;
+    user-select: none;
 }
 
 .description-box .descriptionTitle {
@@ -87,7 +89,7 @@
 .buttonBox button {
     background: linear-gradient(to bottom, white 0%, rgb(207, 207, 207) 100%);
     height: 35px;
-    width: 100px;
+    min-width: 100px;
 
     color: rgb(120, 120, 120);
     font-size: 20px;
@@ -98,14 +100,19 @@
     border-radius: 5px;
 
     cursor: pointer;
+    user-select: none;
 }
 
 .buttonBox button:hover {
-    background: rgb(250, 250, 250);
+    background: rgba(250, 250, 250, 0.171);
 }
 
 .buttonBox button:active {
     opacity: 0.8;
+}
+
+.buttonBox .autoplayToggled {
+    border-color: var(--green1);
 }
 
 .flashcard .gj {
@@ -113,4 +120,28 @@
     text-align: center;
     color: var(--green1);
     font-size: 30px;
+}
+
+@media (max-width: 950px) {
+    .flashcard .top-line .title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 850px) {
+    .pgn-box {
+        display: none;
+    }
+}
+
+@media (max-width: 775px) {
+    .flashcard .top-line .title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 650px) {
+    .flashcard .top-line .title {
+        font-size: 18px;
+    }
 }
