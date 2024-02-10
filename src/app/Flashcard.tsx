@@ -45,12 +45,14 @@ export default function Flashcard(title: string, description: string, plannedPGN
     const pgn = useRef<string>();
     const ind = useRef<number>(-1);
     const saveFromTo = useRef<any>();
+    const [congrats, setCongrats] = useState<string>("");
 
     const [s, setS] = useState<boolean>(true);
 
     // Tracking 
     const numMistakes = useRef<number>(0);
     const numHints = useRef<number>(0);
+    const [autoplayIsToggled, setAutoplayIsToggled] = useState<boolean>(false);
 
     // useSound
     const [playMoveSound] = useSound(moveSound);
@@ -85,6 +87,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
         pgn.current = initialPGN.current;
         chess = new Chess(initialFEN.current);
         setFen(chess.fen);
+        setCongrats("");
         ind.current = startPoint.current;
         saveFromTo.current = null;
 
@@ -136,26 +139,33 @@ export default function Flashcard(title: string, description: string, plannedPGN
         })
     };
 
+    const autoPlay = () => {
+        setAutoplayIsToggled(!autoplayIsToggled);
+    }
+
     const goodJob = () => {
-        playEnergySound();
+        if (isMoveSetCompleted && congrats === "") {
+            playEnergySound();
 
-        // AppInsights
-        appInsights.trackEvent({
-            name: "Done",
-            properties: {
-                Success: (numMistakes.current === 0 && numHints.current === 0),
-                NumMistakes: numMistakes.current,
-                NumMoves: pgnArray.current.length - startPoint.current,
-                NumHints: numHints.current,
-                Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
-            }
-        });
+            // AppInsights
+            appInsights.trackEvent({
+                name: "Done",
+                properties: {
+                    Success: (numMistakes.current === 0 && numHints.current === 0),
+                    NumMistakes: numMistakes.current,
+                    NumMoves: pgnArray.current.length - startPoint.current,
+                    NumHints: numHints.current,
+                    Hash: murmurhash.v3(plannedPGN + move + turn + orientation)
+                }
+            });
 
-        return ("Good Job!");
+            setCongrats("Good Job!");
+        }
     };
 
     useEffect(() => {
         pgnPrint('PGNprint', { pgn: pgn.current, notationLayout: 'list' });
+        goodJob();
     }, [pgn.current]);
 
     // // For Testing
@@ -193,7 +203,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
         })
     }, []);
 
-    const myViewOnly: Config['viewOnly'] = !(ind.current < pgnArray.current.length);
+    const isMoveSetCompleted: Config['viewOnly'] = !(ind.current < pgnArray.current.length);
 
     const myChange = () => {
         if (isItPlannedMove()) {
@@ -206,6 +216,12 @@ export default function Flashcard(title: string, description: string, plannedPGN
 
             changePGN_forPrinting();
             ind.current++;
+
+            if (autoplayIsToggled && turnColor === orientation) {
+                setTimeout(() => {   
+                    handleHint();
+                }, 350);
+            }
         }
         else {
             playErrorSound();
@@ -275,7 +291,7 @@ export default function Flashcard(title: string, description: string, plannedPGN
                     <div>
                         <div className="my_board">
                             <Chessground
-                                viewOnly={myViewOnly}
+                                viewOnly={isMoveSetCompleted}
                                 fen={fen}
                                 orientation={orientation}
                                 turnColor={turnColor}
@@ -292,10 +308,11 @@ export default function Flashcard(title: string, description: string, plannedPGN
                         <div className="buttonBox">
                             <button onClick={resetOfChess}>Do again</button>
                             <button onClick={handleHint}>Hint</button>
+                            <button className={autoplayIsToggled ? "autoplayToggled" : ""} onClick={autoPlay}>Autoplay for {orientation === "white" ? "black" : "white"}</button>
                         </div>
 
                         <div className="gj">
-                            {ind.current >= pgnArray.current.length && goodJob()}
+                            {congrats}
                         </div>
                     </div>
 
