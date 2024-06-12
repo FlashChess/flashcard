@@ -62,7 +62,7 @@
 }
 
 .middle-line .pgn-box { 
-    width: 330px;
+    width: 320px;
     user-select: none;
 }
 
@@ -78,6 +78,7 @@
     border: 5px solid rgb(220, 220, 220);
     border-radius: 5px;
     min-height: 21.6px;
+    box-sizing: border-box;
 }
 
 .flashcard .buttonBox {
@@ -120,6 +121,17 @@
     text-align: center;
     color: var(--green1);
     font-size: 30px;
+}
+
+/* for some reasons only this can get rid of pgn on mobile */
+@media (max-width: 980px) {
+    .pgn-box {
+        display: none;
+    }
+
+    .description-box {
+        min-width: 480px;
+    }
 }
 
 @media (max-width: 950px) {
